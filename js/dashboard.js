@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ═══ CHART 1: Google AI ═══
-  vBar('chartGoogleAI', [8.0, 3.0, 3.7, 2.0, 13.0, 12.3, 11.7, 5.3, 1.3, 7.0], '', { maxY: 16 });
+  vBar('chartGoogleAI', [7.3, 3.0, 3.7, 2.0, 13.0, 12.3, 11.7, 5.3, 1.3, 7.0], '', { maxY: 16 });
 
   // ═══ CHART 2: Models Aggregated ═══
   vBar('chartModelsSummary', [8.47, 25.13, 24.47, 18.40, 5.53, 5.47, 4.20, 3.13, 2.20, 2.40], '', { maxY: 30 });
