@@ -1,0 +1,27 @@
+568:<span class="ig-icon ig-icon--activity"></span>
+571:<span class="ig-icon ig-icon--activity ig-icon--primary"></span>
+572:<span class="ig-icon ig-icon--activity ig-icon--white"></span>
+575:<span class="ig-icon ig-icon--activity ig-icon--sm"></span>
+576:<span class="ig-icon ig-icon--activity ig-icon--lg"></span>
+577:<span class="ig-icon ig-icon--activity ig-icon--xl"></span>
+580:<span class="ig-icon ig-icon--activity" style="color: #ff6600;"></span>
+586:          <span class="ig-icon ig-icon--activity ig-icon--primary"></span>
+590:          <span class="ig-icon ig-icon--activity ig-icon--bright"></span>
+594:          <span class="ig-icon ig-icon--activity ig-icon--dark"></span>
+598:          <span class="ig-icon ig-icon--activity ig-icon--light"></span>
+602:          <span class="ig-icon ig-icon--activity ig-icon--accent"></span>
+606:          <span class="ig-icon ig-icon--activity" style="color: #00aa00;"></span>
+613:          <span class="ig-icon ig-icon--activity ig-icon--sm"></span>
+617:          <span class="ig-icon ig-icon--activity"></span>
+621:          <span class="ig-icon ig-icon--activity ig-icon--lg ig-icon--primary"></span>
+625:          <span class="ig-icon ig-icon--activity ig-icon--xl ig-icon--bright"></span>
+637:          <span class="ig-icon ig-icon--send ig-icon--white"></span>
+641:          <span class="ig-icon ig-icon--download ig-icon--dark"></span>
+645:          <span class="ig-icon ig-icon--external-link"></span>
+649:          <span class="ig-icon ig-icon--settings ig-icon--white"></span>
+656:  <span class="ig-icon ig-icon--send ig-icon--white"></span>
+661:<span class="ig-icon ig-icon--activity ig-icon--primary"></span>
+1141:        el.innerHTML = '<span class="ig-icon ig-icon--' + name + '"></span><div class="icon-item__name">' + name + '</div>';
+1144:          var html = '<span class="ig-icon ig-icon--' + name + '"></span>';
+1146:            navigator.clipboard.writeText('<span class="ig-icon ig-icon--' + name + '"></span>');
+1148:          toast.textContent = '✓ Скопировано: ig-icon--' + name;

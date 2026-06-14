@@ -1,0 +1,191 @@
+/* ============================================
+   IMPULSE.GURU UI KIT — Base / Reset
+   ============================================
+   
+   Импорт: <link rel="stylesheet" href="impulse-ui-kit/css/base.css">
+   ============================================ */
+
+@import url('./variables.css');
+
+/* ─── СБРОС И БАЗОВЫЕ СТИЛИ ─── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--ig-font-family);
+  font-size: var(--ig-font-base);
+  font-weight: var(--ig-font-regular);
+  line-height: var(--ig-line-height-base);
+  color: var(--ig-text-dark);
+  background-color: var(--ig-bg-white);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--ig-text-accent);
+  text-decoration: none;
+  transition: color var(--ig-transition-fast);
+}
+
+a:hover {
+  color: var(--ig-primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─── СКРОЛЛБАР ─── */
+
+::-webkit-scrollbar-button {
+  background-image: url('');
+  background-repeat: no-repeat;
+  width: 6px;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--ig-scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-color: var(--ig-scrollbar-thumb);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--ig-scrollbar-hover);
+}
+
+::-webkit-resizer {
+  background-image: url('');
+  background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* ─── КОНТЕЙНЕР ─── */
+
+.ig-container {
+  max-width: var(--ig-container-max);
+  margin: 0 auto;
+  padding: 0 var(--ig-container-padding);
+}
+
+.ig-container--wide {
+  max-width: 1440px;
+}
+
+.ig-container--narrow {
+  max-width: 960px;
+}
+
+.ig-container--full {
+  max-width: 100%;
+}
+
+/* ─── СЕКЦИИ ─── */
+
+.ig-section {
+  padding: var(--ig-space-4xl) 0;
+}
+
+.ig-section--light {
+  background: var(--ig-bg-light);
+}
+
+.ig-section--gradient {
+  background: var(--ig-bg-gradient);
+}
+
+.ig-section--dark {
+  background: var(--ig-primary);
+  color: var(--ig-white);
+}
+
+.ig-section--gradient-h {
+  background: var(--ig-bg-gradient-h);
+}
+
+/* ─── СЕТКА ─── */
+
+.ig-grid {
+  display: grid;
+  gap: var(--ig-space-lg);
+}
+
+.ig-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.ig-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.ig-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.ig-flex {
+  display: flex;
+}
+
+.ig-flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.ig-flex--between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ig-flex--gap-sm { gap: var(--ig-space-sm); }
+.ig-flex--gap-md { gap: var(--ig-space-md); }
+.ig-flex--gap-lg { gap: var(--ig-space-lg); }
+.ig-flex--gap-xl { gap: var(--ig-space-xl); }
+
+/* ─── УТИЛИТЫ ─── */
+
+.ig-text-center { text-align: center; }
+.ig-text-left   { text-align: left; }
+.ig-text-right  { text-align: right; }
+
+.ig-mb-sm  { margin-bottom: var(--ig-space-sm); }
+.ig-mb-md  { margin-bottom: var(--ig-space-md); }
+.ig-mb-lg  { margin-bottom: var(--ig-space-lg); }
+.ig-mb-xl  { margin-bottom: var(--ig-space-xl); }
+.ig-mb-2xl { margin-bottom: var(--ig-space-2xl); }
+
+.ig-mt-sm  { margin-top: var(--ig-space-sm); }
+.ig-mt-md  { margin-top: var(--ig-space-md); }
+.ig-mt-lg  { margin-top: var(--ig-space-lg); }
+.ig-mt-xl  { margin-top: var(--ig-space-xl); }
+.ig-mt-2xl { margin-top: var(--ig-space-2xl); }
+
+/* Скрытие/показ */
+.ig-hidden { display: none !important; }
+.ig-visible { display: block !important; }
+
+/* Адаптивность */
+@media (max-width: 960px) {
+  .ig-grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .ig-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .ig-grid--2,
+  .ig-grid--3,
+  .ig-grid--4 { grid-template-columns: 1fr; }
+  
+  .ig-section {
+    padding: var(--ig-space-2xl) 0;
+  }
+}

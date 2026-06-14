@@ -1,0 +1,145 @@
+/* ============================================
+   IMPULSE.GURU UI KIT — Design Tokens
+   ============================================
+   
+   Импорт: <link rel="stylesheet" href="impulse-ui-kit/css/variables.css">
+   
+   Все переменные доступны через CSS custom properties
+   ============================================ */
+
+:root {
+  /* ─── ЦВЕТА ─── */
+  
+  /* Основная палитра */
+  --ig-primary:           #20357e;    /* Тёмно-синий — основной цвет */
+  --ig-primary-bright:    #3333cc;    /* Яркий синий — акцент */
+  --ig-primary-light:     #6666ff;    /* Светлый фиолетово-синий */
+  --ig-primary-ultralight:#f0f0ff;    /* Очень светлый — фон секций */
+  
+  /* Текст */
+  --ig-text-dark:         #000066;    /* Основной тёмный текст */
+  --ig-text-primary:      #20357e;    /* Текст-ссылка */
+  --ig-text-accent:       #3333cc;    /* Акцентный текст */
+  
+  /* Фоны */
+  --ig-bg-white:          #ffffff;
+  --ig-bg-light:          #f0f0ff;
+  --ig-bg-gradient:       linear-gradient(135deg, #ffffff 0%, #f0f0ff 100%);
+  --ig-bg-gradient-h:     linear-gradient(90deg, #ffffff 0%, #f0f0ff 100%);
+  --ig-bg-nav:            #20357e;
+  
+  /* Градиенты */
+  --ig-gradient-primary:  linear-gradient(90deg, #6666ff 0%, #3333cc 100%);
+  --ig-gradient-vertical: linear-gradient(to bottom, #6666ff, #3333cc);
+  --ig-gradient-diagonal: linear-gradient(135deg, #ffffff 0%, #f0f0ff 100%);
+  --ig-gradient-text:     linear-gradient(90deg, #f0f0ff 0%, #3333cc 100%);
+  
+  /* Акценты */
+  --ig-accent-red:        #d20000;
+  
+  /* Белый */
+  --ig-white:             #ffffff;
+  --ig-light:             #f0f0ff;
+  
+  /* Скроллбар */
+  --ig-scrollbar-track:   #f0f0ff;
+  --ig-scrollbar-thumb:   #3333cc;
+  --ig-scrollbar-hover:   #d20000;
+  
+  /* ─── ТИПОГРАФИКА ─── */
+  
+  --ig-font-family:       Arial, Helvetica, sans-serif;
+  
+  /* Размеры шрифта */
+  --ig-font-xs:           12px;
+  --ig-font-sm:           14px;
+  --ig-font-base:         15px;
+  --ig-font-md:           16px;
+  --ig-font-lg:           18px;
+  --ig-font-xl:           24px;
+  --ig-font-2xl:          36px;
+  --ig-font-3xl:          54px;
+  
+  /* Толщина шрифта */
+  --ig-font-light:        300;
+  --ig-font-regular:      400;
+  --ig-font-medium:       500;
+  
+  /* Межстрочный интервал */
+  --ig-line-height-tight: 1;
+  --ig-line-height-base:  1.5;
+  
+  /* Межбуквенное расстояние */
+  --ig-letter-spacing:    0.5px;
+  
+  /* ─── КНОПКИ ─── */
+  
+  --ig-btn-height:        50px;
+  --ig-btn-padding:       0 20px;
+  --ig-btn-radius:        6px;
+  --ig-btn-font-size:     15px;
+  --ig-btn-font-weight:   300;
+  
+  /* Кнопка — заливка (основная) */
+  --ig-btn-fill-bg:       #20357e;
+  --ig-btn-fill-color:    #f0f0ff;
+  --ig-btn-fill-border:   1px solid #3333cc;
+  --ig-btn-fill-hover-bg: #f0f0ff;
+  --ig-btn-fill-hover-color: #3333cc;
+  
+  /* Кнопка — контур */
+  --ig-btn-outline-bg:    transparent;
+  --ig-btn-outline-color: #000066;
+  --ig-btn-outline-border: 1px solid #000066;
+  --ig-btn-outline-hover-bg: #20357e;
+  --ig-btn-outline-hover-color: #ffffff;
+  
+  /* ─── ФОРМЫ ─── */
+  
+  --ig-input-height:      50px;
+  --ig-input-padding:     0 16px;
+  --ig-input-bg:          #f0f0ff;
+  --ig-input-color:       #000066;
+  --ig-input-border:      1px solid #3333cc;
+  --ig-input-font-size:   15px;
+  --ig-input-radius:      6px;
+  --ig-input-gap:         20px;
+  
+  /* ─── ГРАНИЦЫ И РАДИУСЫ ─── */
+  
+  --ig-radius-sm:         4px;
+  --ig-radius-md:         6px;
+  --ig-radius-lg:         12px;
+  --ig-radius-xl:         20px;
+  --ig-radius-round:      9999px;
+  --ig-radius-circle:     3000px;
+  
+  /* ─── ОТСТУПЫ ─── */
+  
+  --ig-space-xs:          4px;
+  --ig-space-sm:          8px;
+  --ig-space-md:          16px;
+  --ig-space-lg:          24px;
+  --ig-space-xl:          32px;
+  --ig-space-2xl:         48px;
+  --ig-space-3xl:         64px;
+  --ig-space-4xl:         96px;
+  
+  /* ─── ПЕРЕХОДЫ ─── */
+  
+  --ig-transition-fast:   0.2s ease-in-out;
+  --ig-transition-base:   0.3s ease-in-out;
+  --ig-transition-slow:   0.6s ease-out;
+  
+  /* ─── ТЕНИ ─── */
+  
+  --ig-shadow-sm:         0 1px 3px rgba(0, 0, 102, 0.08);
+  --ig-shadow-md:         0 4px 12px rgba(0, 0, 102, 0.12);
+  --ig-shadow-lg:         0 8px 24px rgba(0, 0, 102, 0.16);
+  --ig-shadow-xl:         0 12px 48px rgba(0, 0, 102, 0.20);
+  
+  /* ─── КОНТЕЙНЕРЫ ─── */
+  
+  --ig-container-max:     1200px;
+  --ig-container-padding: 20px;
+}

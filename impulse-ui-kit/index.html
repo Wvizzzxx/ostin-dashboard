@@ -1,0 +1,2523 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impulse.guru UI Kit - Превью компонентов</title>
+  <link rel="stylesheet" href="css/impulse-ui-kit.css">
+  <style>
+    .preview-section {
+      padding: 48px 0;
+      border-bottom: 1px solid #f0f0ff;
+    }
+    .preview-section:last-child {
+      border-bottom: none;
+    }
+    .preview-title {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 24px;
+    }
+    .preview-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .preview-row:last-child { margin-bottom: 0; }
+    .preview-label {
+      font-size: 13px;
+      color: #999;
+      min-width: 120px;
+    }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .color-swatch {
+      width: 80px;
+      height: 80px;
+      border-radius: 6px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 8px;
+      font-size: 11px;
+      font-weight: 400;
+      color: #fff;
+    }
+    .color-swatch--light { color: #000066; }
+    .dark-bg {
+      background: #20357e;
+      padding: 32px;
+      border-radius: 8px;
+    }
+    .code-block {
+      background: #1a1a2e;
+      color: #f0f0ff;
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: 100px;
+    }
+    .icon-item:hover {
+      background: #f0f0ff;
+    }
+    .icon-item__name {
+      font-size: 10px;
+      color: #999;
+      margin-top: 6px;
+      word-break: break-all;
+      line-height: 1.2;
+    }
+    .ai-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      display: block;
+    }
+    .bg-preview-item {
+      width: min(100%, 420px);
+    }
+    .bg-preview-frame {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e4e8ff;
+      box-shadow: 0 12px 30px rgba(32, 53, 126, 0.12);
+      margin-bottom: 10px;
+    }
+    .bg-preview-frame img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .viz-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .viz-card {
+      border: 1px solid #dbe2ff;
+      border-radius: 14px;
+      padding: 18px;
+      background: linear-gradient(180deg, #ffffff, #f7f9ff);
+    }
+    .viz-card h4 { margin: 0 0 12px; font-size: 14px; color: #20357e; }
+    .viz-bars { display: grid; gap: 8px; }
+    .viz-bar { height: 20px; border-radius: 999px; background: linear-gradient(90deg, #6666ff, #20357e); }
+    .viz-line { width: 100%; height: 120px; }
+    .viz-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .viz-table th, .viz-table td { border-bottom: 1px solid #e2e8ff; text-align: left; padding: 7px 4px; }
+    .viz-donut {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(#20357e 0 38%, #6666ff 38% 66%, #9ba8ff 66% 86%, #d9e1ff 86% 100%);
+      margin: 8px auto 4px;
+      position: relative;
+    }
+    .viz-donut::after {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      background: #fff;
+      border-radius: 50%;
+    }
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a2e;
+      color: #f0f0ff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 13px;
+      z-index: 99999;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .toast--visible { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       ШАПКА
+       ═══════════════════════════════════════════ -->
+  <div class="ig-header">
+    <div class="ig-header__inner">
+      <div class="ig-header__logo">
+        <a href="#"><img src="assets/logo-white.svg" alt="impulse.guru"></a>
+      </div>
+      <nav class="ig-header__nav">
+        <a href="#" class="ig-header__link">Примеры работ</a>
+        <a href="#" class="ig-header__link">Блог</a>
+        <div class="ig-social-icons">
+          <a href="#" class="ig-social-icon ig-social-icon--wa">
+            <span class="ig-social-icon__label">WhatsApp</span>
+            <img src="assets/icon-whatsapp.svg" alt="WhatsApp">
+          </a>
+          <a href="#" class="ig-social-icon ig-social-icon--tg">
+            <span class="ig-social-icon__label">Telegram</span>
+            <img src="assets/icon-telegram.svg" alt="Telegram">
+          </a>
+        </div>
+        <a href="#" class="ig-btn ig-btn--white" style="height:30px; font-size:15px; font-weight:400;">Связаться с нами</a>
+      </nav>
+      <div class="ig-mobile-toggle">
+        <span class="ig-mobile-toggle__line"></span>
+        <span class="ig-mobile-toggle__line"></span>
+        <span class="ig-mobile-toggle__line"></span>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 70px;"></div>
+
+  <!-- ГЕРОЙ-СЕКЦИЯ -->
+  <section style="background: linear-gradient(135deg, #20357e 0%, #000033 100%); padding: 80px 0; color: #fff; margin-bottom: 0;">
+    <div class="ig-container ig-text-center">
+      <div style="margin-bottom: 24px;">
+        <img src="assets/logo-white.svg" alt="impulse.guru" style="height: 40px; margin: 0 auto;">
+      </div>
+      <h1 style="font-size: 54px; font-weight: 500; line-height: 1; margin-bottom: 16px; color: #f0f0ff;">UI Kit</h1>
+      <p style="font-size: 18px; font-weight: 300; color: #f0f0ff; opacity: 0.8; letter-spacing: 0.5px;">Полный набор компонентов в стилистике impulse.guru</p>
+    </div>
+  </section>
+
+  <div style="padding-top: 40px;">
+
+  <!-- ═══════════════════════════════════════════
+       ЦВЕТА
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section">
+    <div class="ig-container">
+      <div class="preview-title">Палитра цветов</div>
+      <div class="preview-row">
+        <div>
+          <div class="color-swatch" style="background: #20357e;">#20357e</div>
+          <div style="font-size: 12px; margin-top: 6px; color: #666;">Primary</div>
+        </div>
+        <div>
+          <div class="color-swatch" style="background: #3333cc;">#3333cc</div>
+          <div style="font-size: 12px; margin-top: 6px; color: #666;">Bright</div>
+        </div>
+        <div>
+          <div class="color-swatch" style="background: #6666ff;">#6666ff</div>
+          <div style="font-size: 12px; margin-top: 6px; color: #666;">Light</div>
+        </div>
+        <div>
+          <div class="color-swatch color-swatch--light" style="background: #f0f0ff;">#f0f0ff</div>
+          <div style="font-size: 12px; margin-top: 6px; color: #666;">Ultra Light</div>
+        </div>
+        <div>
+          <div class="color-swatch color-swatch--light" style="background: #000066;">#000066</div>
+          <div style="font-size: 12px; margin-top: 6px; color: #666;">Text Dark</div>
+        </div>
+        <div>
+          <div class="color-swatch" style="background: #d20000;">#d20000</div>
+          <div style="font-size: 12px; margin-top: 6px; color: #666;">Accent Red</div>
+        </div>
+        <div>
+          <div class="color-swatch color-swatch--light" style="background: #ffffff; border: 1px solid #eee;">#ffffff</div>
+          <div style="font-size: 12px; margin-top: 6px; color: #666;">White</div>
+        </div>
+      </div>
+      
+      <div class="preview-row" style="margin-top: 24px;">
+        <div>
+          <div style="width: 200px; height: 40px; background: linear-gradient(90deg, #6666ff, #3333cc); border-radius: 6px;"></div>
+          <div style="font-size: 12px; margin-top: 6px; color: #666;">Gradient Primary</div>
+        </div>
+        <div>
+          <div style="width: 200px; height: 40px; background: linear-gradient(135deg, #fff, #f0f0ff); border: 1px solid #eee; border-radius: 6px;"></div>
+          <div style="font-size: 12px; margin-top: 6px; color: #666;">Gradient Diagonal</div>
+        </div>
+        <div>
+          <div style="width: 200px; height: 40px; background: linear-gradient(to bottom, #6666ff, #3333cc); border-radius: 6px;"></div>
+          <div style="font-size: 12px; margin-top: 6px; color: #666;">Gradient Vertical</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       РўРРџРћР“Р РђР¤РРљРђ
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section ig-section--light">
+    <div class="ig-container">
+      <div class="preview-title">Типографика</div>
+      <div style="margin-bottom: 24px;">
+        <div class="ig-h1 ig-mb-sm">H1 — Экспертиза (54px / 500)</div>
+        <div style="font-size: 12px; color: #999;">font-weight: 500, line-height: 1</div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div class="ig-h2 ig-mb-sm">H2 — Напишите нам (36px / 500)</div>
+        <div style="font-size: 12px; color: #999;">font-weight: 500, line-height: 1</div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div class="ig-h3 ig-mb-sm">H3 — Заголовок (24px / 500)</div>
+        <div style="font-size: 12px; color: #999;">font-weight: 500, line-height: 1</div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div class="ig-h4 ig-mb-sm">H4 — Подзаголовок (18px / 500)</div>
+        <div style="font-size: 12px; color: #999;">font-weight: 500, line-height: 1</div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div class="ig-subtitle ig-mb-sm">Подзаголовок — Исследования (18px / 300)</div>
+        <div style="font-size: 12px; color: #999;">font-weight: 300, letter-spacing: 0.5px</div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div class="ig-body ig-mb-sm">Основной текст — Нажимая кнопку «Получить консультацию», вы даёте согласие на обработку персональных данных (15px / 300)</div>
+        <div style="font-size: 12px; color: #999;">font-weight: 300, line-height: 1.5</div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div class="ig-caption ig-mb-sm">Мелкий текст — caption (14px / 300)</div>
+        <div style="font-size: 12px; color: #999;">font-weight: 300, line-height: 1.5</div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div class="ig-text-gradient" style="font-size: 54px; font-weight: 300;">Градиентный текст</div>
+        <div style="font-size: 12px; color: #999;">background: gradient-text, -webkit-background-clip: text</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       РљРќРћРџРљР
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section">
+    <div class="ig-container">
+      <div class="preview-title">Кнопки</div>
+      
+      <h3 class="ig-h4 ig-mb-md">Основные варианты</h3>
+      <div class="preview-row">
+        <a href="#" class="ig-btn ig-btn--primary">Связаться с нами</a>
+        <a href="#" class="ig-btn ig-btn--outline">Примеры работ</a>
+        <a href="#" class="ig-btn ig-btn--gradient">Получить консультацию</a>
+        <a href="#" class="ig-btn ig-btn--text">Перезвоните мне</a>
+        <a href="#" class="ig-btn ig-btn--accent">Новое</a>
+      </div>
+
+      <h3 class="ig-h4 ig-mb-md ig-mt-xl">Размеры</h3>
+      <div class="preview-row">
+        <a href="#" class="ig-btn ig-btn--primary ig-btn--sm">Small (36px)</a>
+        <a href="#" class="ig-btn ig-btn--primary">Default (50px)</a>
+        <a href="#" class="ig-btn ig-btn--primary ig-btn--lg">Large (60px)</a>
+        <a href="#" class="ig-btn ig-btn--primary ig-btn--xl">Extra Large (70px)</a>
+      </div>
+
+      <h3 class="ig-h4 ig-mb-md ig-mt-xl">На тёмном фоне</h3>
+      <div class="dark-bg">
+        <div class="preview-row">
+          <a href="#" class="ig-btn ig-btn--white">Перезвоните мне</a>
+          <a href="#" class="ig-btn ig-btn--primary">Связаться с нами</a>
+          <a href="#" class="ig-btn ig-btn--text" style="color: #f0f0ff;">Текстовая</a>
+        </div>
+      </div>
+
+      <h3 class="ig-h4 ig-mb-md ig-mt-xl">Кнопка-иконка</h3>
+      <div class="preview-row">
+        <a href="#" class="ig-btn ig-btn--icon ig-btn--primary">
+          <img src="assets/icon-message.svg" alt="icon">
+        </a>
+        <a href="#" class="ig-btn ig-btn--circle-anim">
+          <img src="assets/icon-message.svg" alt="icon" style="position:relative;z-index:1;">
+        </a>
+      </div>
+      
+      <h3 class="ig-h4 ig-mb-md ig-mt-xl">Полная ширина</h3>
+      <div style="max-width: 400px;">
+        <a href="#" class="ig-btn ig-btn--primary ig-btn--block">Получить консультацию</a>
+      </div>
+
+      <div class="code-block">
+<a href="#" class="ig-btn ig-btn--primary">Кнопка</a>
+<a href="#" class="ig-btn ig-btn--outline">Контур</a>
+<a href="#" class="ig-btn ig-btn--gradient">Градиент</a>
+<a href="#" class="ig-btn ig-btn--text">Текст</a>
+<a href="#" class="ig-btn ig-btn--accent">Акцент</a>
+<a href="#" class="ig-btn ig-btn--white">Белая</a>
+
+<!-- Размеры -->
+<a href="#" class="ig-btn ig-btn--primary ig-btn--sm">Small</a>
+<a href="#" class="ig-btn ig-btn--primary ig-btn--lg">Large</a>
+<a href="#" class="ig-btn ig-btn--primary ig-btn--xl">XL</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ФОРМЫ
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section ig-section--light">
+    <div class="ig-container">
+      <div class="preview-title">Формы</div>
+      
+      <h3 class="ig-h4 ig-mb-md">Горизонтальная форма (как на сайте)</h3>
+      <form class="ig-form ig-form--horizontal ig-mb-2xl" onsubmit="return false;">
+        <div class="ig-form__group">
+          <input type="text" class="ig-form__input" placeholder="Р¤РРћ*">
+        </div>
+        <div class="ig-form__group">
+          <input type="tel" class="ig-form__input" placeholder="Телефон*" style="mask: '+7 (999) 999-99-99'">
+        </div>
+        <div class="ig-form__group">
+          <input type="email" class="ig-form__input" placeholder="Почта*">
+        </div>
+        <div class="ig-form__group">
+          <input type="url" class="ig-form__input" placeholder="Ваш сайт*">
+        </div>
+        <div class="ig-form__submit">
+          <button type="submit" class="ig-btn ig-btn--primary" style="height: 50px; min-width: 220px;">Получить консультацию</button>
+        </div>
+      </form>
+      <p class="ig-form__consent ig-mb-2xl">
+        Нажимая кнопку «Получить консультацию», вы даёте согласие на обработку персональных данных в соответствии с 
+        <a href="#">Политикой обработки данных</a> и <a href="#">Согласие на получение рассылки</a>.
+      </p>
+
+      <h3 class="ig-h4 ig-mb-md">Вертикальная форма</h3>
+      <form class="ig-form ig-mb-2xl" style="max-width: 500px; flex-direction: column; align-items: stretch;" onsubmit="return false;">
+        <div class="ig-form__group">
+          <label class="ig-form__label">Р¤РРћ*</label>
+          <input type="text" class="ig-form__input" placeholder="РРІР°РЅРѕРІ РРІР°РЅ РРІР°РЅРѕРІРёС‡">
+        </div>
+        <div class="ig-form__group">
+          <label class="ig-form__label">Телефон*</label>
+          <input type="tel" class="ig-form__input" placeholder="+7 (999) 999-99-99">
+        </div>
+        <div class="ig-form__group">
+          <label class="ig-form__label">Email*</label>
+          <input type="email" class="ig-form__input" placeholder="example@mail.ru">
+        </div>
+        <div class="ig-form__group">
+          <label class="ig-form__label">Ваш сайт*</label>
+          <input type="url" class="ig-form__input" placeholder="https://example.ru">
+        </div>
+        <div class="ig-form__group">
+          <label class="ig-form__label">Сообщение</label>
+          <textarea class="ig-form__input ig-form__textarea" placeholder="Расскажите о вашем проекте..."></textarea>
+        </div>
+        <div>
+          <button type="submit" class="ig-btn ig-btn--primary ig-btn--block" style="margin-top: 12px;">Отправить</button>
+        </div>
+      </form>
+
+      <div class="code-block">
+<form class="ig-form ig-form--horizontal">
+  <div class="ig-form__group">
+    <input class="ig-form__input" placeholder="Р¤РРћ*">
+  </div>
+  <div class="ig-form__group">
+    <input class="ig-form__input" placeholder="Телефон*">
+  </div>
+  <div class="ig-form__submit">
+    <button class="ig-btn ig-btn--primary">Отправить</button>
+  </div>
+</form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       РљРђР РўРћР§РљР
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section">
+    <div class="ig-container">
+      <div class="preview-title">Карточки</div>
+      
+      <h3 class="ig-h4 ig-mb-md">Базовые карточки</h3>
+      <div class="preview-grid">
+        <div class="ig-card ig-card--bordered ig-card--hover">
+          <div class="ig-card__icon">
+            <img src="assets/icon-aim.svg" alt="icon">
+          </div>
+          <div class="ig-card__title">Поисковое продвижение</div>
+          <div class="ig-card__text">Комплексная SEO-оптимизация вашего сайта для увеличения organic трафика.</div>
+        </div>
+        <div class="ig-card ig-card--bordered ig-card--hover">
+          <div class="ig-card__icon">
+            <img src="assets/icon-aim.svg" alt="icon">
+          </div>
+          <div class="ig-card__title">Аналитика</div>
+          <div class="ig-card__text">Глубокий анализ данных для принятия обоснованных маркетинговых решений.</div>
+        </div>
+        <div class="ig-card ig-card--bordered ig-card--hover">
+          <div class="ig-card__icon">
+            <img src="assets/icon-aim.svg" alt="icon">
+          </div>
+          <div class="ig-card__title">Разработка</div>
+          <div class="ig-card__text">Создание современных веб-проектов с учётом всех требований бизнеса.</div>
+        </div>
+      </div>
+
+      <h3 class="ig-h4 ig-mb-md ig-mt-xl">Карточки услуг (с hover-эффектом)</h3>
+      <div class="preview-grid">
+        <div class="ig-service-card">
+          <div class="ig-service-card__bg"></div>
+          <div class="ig-service-card__content">
+            <div class="ig-service-card__title">Экспертиза</div>
+            <div class="ig-service-card__link">Исследования</div>
+          </div>
+        </div>
+        <div class="ig-service-card">
+          <div class="ig-service-card__bg"></div>
+          <div class="ig-service-card__content">
+            <div class="ig-service-card__title">О компании</div>
+            <div class="ig-service-card__link">Публикации</div>
+          </div>
+        </div>
+        <div class="ig-service-card">
+          <div class="ig-service-card__bg"></div>
+          <div class="ig-service-card__content">
+            <div class="ig-service-card__title">Пригласить в торги</div>
+            <div class="ig-service-card__link">Для партнёров</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="ig-h4 ig-mb-md ig-mt-xl">Светлый фон</h3>
+      <div class="ig-card ig-card--light" style="max-width: 400px;">
+        <div class="ig-card__title">Карточка на светлом фоне</div>
+        <div class="ig-card__text">Фон: #f0f0ff. Используйте для выделения секций.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       Р‘Р•Р™Р”Р–Р
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section ig-section--light">
+    <div class="ig-container">
+      <div class="preview-title">Бейджи / Теги</div>
+      <div class="preview-row">
+        <div class="ig-badge">120</div>
+        <div class="ig-badge ig-badge--accent">5</div>
+        <div class="ig-badge" style="background: linear-gradient(90deg, #6666ff, #3333cc); color: #fff; font-size: 18px;">SEO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       СЕПАРАТОРЫ
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section">
+    <div class="ig-container">
+      <div class="preview-title">Сепараторы</div>
+      
+      <p style="font-size: 13px; color: #999; margin-bottom: 12px;">Обычный</p>
+      <div class="ig-divider" style="max-width: 300px; margin-bottom: 24px;"></div>
+      
+      <p style="font-size: 13px; color: #999; margin-bottom: 12px;">Анимированный</p>
+      <div class="ig-divider ig-divider--animated" style="max-width: 300px; margin-bottom: 24px;"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       СОЦИАЛЬНЫЕ ИКОНКИ
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section ig-section--light">
+    <div class="ig-container">
+      <div class="preview-title">Социальные иконки</div>
+      
+      <h3 class="ig-h4 ig-mb-md">На тёмном фоне</h3>
+      <div class="dark-bg" style="margin-bottom: 24px;">
+        <div class="ig-social-icons">
+          <a href="#" class="ig-social-icon ig-social-icon--wa">
+            <span class="ig-social-icon__label">WhatsApp</span>
+            <img src="assets/icon-whatsapp.svg" alt="WhatsApp">
+          </a>
+          <a href="#" class="ig-social-icon ig-social-icon--tg">
+            <span class="ig-social-icon__label">Telegram</span>
+            <img src="assets/icon-telegram.svg" alt="Telegram">
+          </a>
+        </div>
+      </div>
+
+      <h3 class="ig-h4 ig-mb-md">На светлом фоне</h3>
+      <div style="background: #f0f0ff; padding: 32px; border-radius: 8px;">
+        <div class="ig-social-icons">
+          <a href="#" class="ig-social-icon ig-social-icon--wa">
+            <span class="ig-social-icon__label" style="color: #000066;">WhatsApp</span>
+            <img src="assets/icon-whatsapp-dark.svg" alt="WhatsApp">
+          </a>
+          <a href="#" class="ig-social-icon ig-social-icon--tg">
+            <span class="ig-social-icon__label" style="color: #000066;">Telegram</span>
+            <img src="assets/icon-telegram-dark.svg" alt="Telegram">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ГЕОЛОКАЦИЯ + ТЕЛЕФОН
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section">
+    <div class="ig-container">
+      <div class="preview-title">Город и телефон</div>
+      <div class="preview-row">
+        <div class="ig-geo">
+          <div class="ig-geo__icon"><img src="assets/icon-geo.svg" alt=""></div>
+          <span class="ig-geo__text">Москва</span>
+        </div>
+        <a href="tel:+74952666247" class="ig-geo__phone">+7 (495) 26-66-247</a>
+      </div>
+      <div class="preview-row">
+        <div class="ig-geo">
+          <div class="ig-geo__icon"><img src="assets/icon-geo.svg" alt=""></div>
+          <span class="ig-geo__text">Владимир</span>
+        </div>
+        <a href="tel:+74922494560" class="ig-geo__phone">+7 (4922) 494-560</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       СКРОЛЛИРУЮЩИЙСЯ ТЕКСТ
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section ig-section--light" style="overflow: hidden;">
+    <div class="ig-container">
+      <div class="preview-title">Скроллирующийся текст (Marquee)</div>
+    </div>
+    <div class="ig-marquee">
+      <div class="ig-marquee__inner">
+        <span class="ig-marquee__text">• агентство поискового маркетинга • агентство поискового маркетинга • агентство поискового маркетинга • агентство поискового маркетинга&nbsp;&nbsp;&nbsp;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ИКОНКИ (CSS-система)
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section">
+    <div class="ig-container">
+      <div class="preview-title">Иконки — CSS-система (mask-image)</div>
+      
+      <h3 class="ig-h4 ig-mb-md">Использование</h3>
+      <div class="code-block">
+<!-- Базовая иконка (цвет = currentColor, 24×24) -->
+<span class="ig-icon ig-icon--activity"></span>
+
+<!-- Смена цвета через CSS-класс -->
+<span class="ig-icon ig-icon--activity ig-icon--primary"></span>
+<span class="ig-icon ig-icon--activity ig-icon--white"></span>
+
+<!-- Размеры -->
+<span class="ig-icon ig-icon--activity ig-icon--sm"></span>
+<span class="ig-icon ig-icon--activity ig-icon--lg"></span>
+<span class="ig-icon ig-icon--activity ig-icon--xl"></span>
+
+<!-- Свой цвет через style -->
+<span class="ig-icon ig-icon--activity" style="color: #ff6600;"></span>
+      </div>
+
+      <h3 class="ig-h4 ig-mb-md ig-mt-xl">Размеры и цвета</h3>
+      <div class="preview-row">
+        <div style="text-align: center;">
+          <span class="ig-icon ig-icon--activity ig-icon--primary"></span>
+          <div style="font-size: 10px; color: #999; margin-top: 4px;">primary</div>
+        </div>
+        <div style="text-align: center;">
+          <span class="ig-icon ig-icon--activity ig-icon--bright"></span>
+          <div style="font-size: 10px; color: #999; margin-top: 4px;">bright</div>
+        </div>
+        <div style="text-align: center;">
+          <span class="ig-icon ig-icon--activity ig-icon--dark"></span>
+          <div style="font-size: 10px; color: #999; margin-top: 4px;">dark</div>
+        </div>
+        <div style="text-align: center;">
+          <span class="ig-icon ig-icon--activity ig-icon--light"></span>
+          <div style="font-size: 10px; color: #999; margin-top: 4px;">light</div>
+        </div>
+        <div style="text-align: center;">
+          <span class="ig-icon ig-icon--activity ig-icon--accent"></span>
+          <div style="font-size: 10px; color: #999; margin-top: 4px;">accent</div>
+        </div>
+        <div style="text-align: center;">
+          <span class="ig-icon ig-icon--activity" style="color: #00aa00;"></span>
+          <div style="font-size: 10px; color: #999; margin-top: 4px;">custom</div>
+        </div>
+      </div>
+
+      <div class="preview-row">
+        <div style="text-align: center;">
+          <span class="ig-icon ig-icon--activity ig-icon--sm"></span>
+          <div style="font-size: 10px; color: #999; margin-top: 4px;">sm (16px)</div>
+        </div>
+        <div style="text-align: center;">
+          <span class="ig-icon ig-icon--activity"></span>
+          <div style="font-size: 10px; color: #999; margin-top: 4px;">md (24px)</div>
+        </div>
+        <div style="text-align: center;">
+          <span class="ig-icon ig-icon--activity ig-icon--lg ig-icon--primary"></span>
+          <div style="font-size: 10px; color: #999; margin-top: 4px;">lg (32px)</div>
+        </div>
+        <div style="text-align: center;">
+          <span class="ig-icon ig-icon--activity ig-icon--xl ig-icon--bright"></span>
+          <div style="font-size: 10px; color: #999; margin-top: 4px;">xl (48px)</div>
+        </div>
+      </div>
+
+      <h3 class="ig-h4 ig-mb-md ig-mt-xl">Все иконки</h3>
+      <p class="ig-body ig-mb-md">Всего <strong id="icon-count"></strong> иконок из папки <code>icon/</code>. Кликните по иконке, чтобы скопировать HTML-код.</p>
+      <div id="icon-grid" class="preview-row" style="gap: 12px; display: flex; flex-wrap: wrap;"></div>
+      <div style="margin-top: 24px;">
+        <p class="ig-body ig-mb-md">AI-иконки SVG: <strong id="ai-icon-count"></strong> (из <code>icon_ai/</code>). Кликните по иконке, чтобы скопировать путь.</p>
+        <div id="ai-icon-grid" class="preview-row" style="gap: 12px; display: flex; flex-wrap: wrap;"></div>
+      </div>
+      <div style="margin-top: 24px;">
+        <p class="ig-body ig-mb-md">Фоны из <code>backgrounds/</code>: <strong id="background-count"></strong>. Кликните, чтобы скопировать путь файла.</p>
+        <div id="background-grid" class="preview-row" style="gap: 18px; display: flex; flex-wrap: wrap;"></div>
+      </div>
+
+      <h3 class="ig-h4 ig-mb-md ig-mt-xl">Примеры в контексте</h3>
+      <div class="preview-row">
+        <a href="#" class="ig-btn ig-btn--primary">
+          <span class="ig-icon ig-icon--send ig-icon--white"></span>
+          Отправить
+        </a>
+        <a href="#" class="ig-btn ig-btn--outline">
+          <span class="ig-icon ig-icon--download ig-icon--dark"></span>
+          Скачать
+        </a>
+        <a href="#" class="ig-btn ig-btn--text">
+          <span class="ig-icon ig-icon--external-link"></span>
+          Подробнее
+        </a>
+        <a href="#" class="ig-btn ig-btn--icon ig-btn--primary">
+          <span class="ig-icon ig-icon--settings ig-icon--white"></span>
+        </a>
+      </div>
+
+      <div class="code-block ig-mt-lg">
+<!-- В кнопке -->
+<a href="#" class="ig-btn ig-btn--primary">
+  <span class="ig-icon ig-icon--send ig-icon--white"></span>
+  Отправить
+</a>
+
+<!-- Как самостоятельный элемент -->
+<span class="ig-icon ig-icon--activity ig-icon--primary"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       КОНТЕЙНЕРЫ
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section ig-section--light">
+    <div class="ig-container">
+      <div class="preview-title">Контейнеры и сетки</div>
+      
+      <div class="preview-row" style="margin-bottom: 16px;">
+        <div style="background: var(--ig-primary-bright); color: #fff; padding: 12px; text-align: center; border-radius: 4px;">2 колонки</div>
+        <div style="background: var(--ig-primary-bright); color: #fff; padding: 12px; text-align: center; border-radius: 4px;">2 колонки</div>
+      </div>
+
+      <div class="ig-grid ig-grid--3" style="margin-bottom: 16px;">
+        <div style="background: var(--ig-primary); color: #fff; padding: 12px; text-align: center; border-radius: 4px;">3 колонки</div>
+        <div style="background: var(--ig-primary); color: #fff; padding: 12px; text-align: center; border-radius: 4px;">3 колонки</div>
+        <div style="background: var(--ig-primary); color: #fff; padding: 12px; text-align: center; border-radius: 4px;">3 колонки</div>
+      </div>
+
+      <div class="ig-grid ig-grid--4">
+        <div style="background: var(--ig-primary-light); color: #fff; padding: 12px; text-align: center; border-radius: 4px;">4 колонки</div>
+        <div style="background: var(--ig-primary-light); color: #fff; padding: 12px; text-align: center; border-radius: 4px;">4 колонки</div>
+        <div style="background: var(--ig-primary-light); color: #fff; padding: 12px; text-align: center; border-radius: 4px;">4 колонки</div>
+        <div style="background: var(--ig-primary-light); color: #fff; padding: 12px; text-align: center; border-radius: 4px;">4 колонки</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       МОДАЛЬНОЕ ОКНО (пример)
+       ═══════════════════════════════════════════ -->
+  <section class="preview-section ig-section">
+    <div class="ig-container">
+      <div class="preview-title">Модальное окно</div>
+      <button class="ig-btn ig-btn--primary" onclick="document.getElementById('demo-popup').classList.add('ig-popup--active')">Открыть попап</button>
+    </div>
+  </section>
+
+  <div id="demo-popup" class="ig-popup" onclick="if(event.target===this)this.classList.remove('ig-popup--active')">
+    <div class="ig-popup__content">
+      <button class="ig-popup__close" onclick="document.getElementById('demo-popup').classList.remove('ig-popup--active')">
+        <img src="assets/icon-close.svg" alt="close">
+      </button>
+      <h3 class="ig-h3 ig-mb-lg ig-text-center">Перезвоните мне</h3>
+      <form onsubmit="return false;">
+        <div class="ig-form__group ig-mb-md">
+          <input type="text" class="ig-form__input" placeholder="Ваше имя*">
+        </div>
+        <div class="ig-form__group ig-mb-md">
+          <input type="tel" class="ig-form__input" placeholder="Телефон*">
+        </div>
+        <button type="submit" class="ig-btn ig-btn--primary ig-btn--block">Перезвоните мне</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       Р¤РЈРўР•Р -РџР РРњР•Р 
+       ═══════════════════════════════════════════ -->
+  <section style="background: linear-gradient(135deg, #20357e 0%, #000033 100%); padding: 60px 0; color: #f0f0ff;">
+    <div class="ig-container">
+      <div class="ig-grid ig-grid--4" style="margin-bottom: 48px;">
+        <div>
+          <div class="ig-badge ig-mb-lg">120</div>
+          <div class="ig-h2 ig-mb-sm" style="color: #f0f0ff;">Экспертиза</div>
+        </div>
+        <div>
+          <div class="ig-badge ig-mb-lg">5</div>
+          <div class="ig-h2 ig-mb-sm" style="color: #f0f0ff;">О компании</div>
+        </div>
+        <div>
+          <div class="ig-badge ig-mb-lg">10</div>
+          <div class="ig-h2 ig-mb-sm" style="color: #f0f0ff;">Публикации</div>
+        </div>
+        <div>
+          <div class="ig-badge ig-mb-lg">3</div>
+          <div class="ig-h2 ig-mb-sm" style="color: #f0f0ff;">Напишите нам</div>
+        </div>
+      </div>
+      
+      <div class="ig-divider--light ig-mb-xl"></div>
+      
+      <div class="ig-flex ig-flex--between">
+        <div class="ig-flex ig-flex--center ig-flex--gap-lg">
+          <img src="assets/logo-white.svg" alt="logo" style="height: 21px;">
+          <div class="ig-geo">
+            <div class="ig-geo__icon"><img src="assets/icon-geo.svg" alt=""></div>
+            <span style="color: #f0f0ff; font-size: 18px; font-weight: 500;">Москва</span>
+          </div>
+          <a href="tel:+74952666247" style="color: #f0f0ff; font-size: 16px;">+7 (495) 26-66-247</a>
+        </div>
+        <div class="ig-social-icons">
+          <a href="#" class="ig-social-icon">
+            <img src="assets/icon-whatsapp.svg" alt="WhatsApp">
+          </a>
+          <a href="#" class="ig-social-icon">
+            <img src="assets/icon-telegram.svg" alt="Telegram">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="preview-section ig-section ig-section--light">
+    <div class="ig-container">
+      <div class="preview-title">Data Visualization (по мотивам realty)</div>
+      <div class="viz-grid">
+        <div class="viz-card">
+          <h4>Top застройщики: Share of Voice</h4>
+          <div class="viz-bars">
+            <div class="viz-bar" style="width: 92%;"></div>
+            <div class="viz-bar" style="width: 78%;"></div>
+            <div class="viz-bar" style="width: 63%;"></div>
+            <div class="viz-bar" style="width: 49%;"></div>
+            <div class="viz-bar" style="width: 34%;"></div>
+          </div>
+        </div>
+        <div class="viz-card">
+          <h4>Динамика упоминаний по месяцам</h4>
+          <svg class="viz-line" viewBox="0 0 300 120" role="img" aria-label="line chart">
+            <polyline fill="none" stroke="#dbe2ff" stroke-width="1" points="0,90 300,90"></polyline>
+            <polyline fill="none" stroke="#dbe2ff" stroke-width="1" points="0,60 300,60"></polyline>
+            <polyline fill="none" stroke="#dbe2ff" stroke-width="1" points="0,30 300,30"></polyline>
+            <polyline fill="none" stroke="#20357e" stroke-width="3" points="10,92 54,84 98,70 142,73 186,44 230,38 274,24"></polyline>
+            <circle cx="274" cy="24" r="4" fill="#6666ff"></circle>
+          </svg>
+        </div>
+        <div class="viz-card">
+          <h4>Тональность ответов AI</h4>
+          <div class="viz-donut"></div>
+          <p class="ig-body ig-text-center" style="font-size:12px;margin:0;">Positive / Neutral / Negative / Mixed</p>
+        </div>
+        <div class="viz-card">
+          <h4>Матрица провайдеров и метрик</h4>
+          <table class="viz-table">
+            <thead><tr><th>Provider</th><th>Relevance</th><th>Fairness</th><th>Evidence</th></tr></thead>
+            <tbody>
+              <tr><td>ChatGPT</td><td>89</td><td>76</td><td>84</td></tr>
+              <tr><td>Gemini</td><td>81</td><td>79</td><td>72</td></tr>
+              <tr><td>Perplexity</td><td>74</td><td>83</td><td>88</td></tr>
+              <tr><td>GigaChat</td><td>69</td><td>74</td><td>63</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подвал документации -->
+  <footer style="padding: 32px 0; text-align: center; color: #999; font-size: 13px;">
+    <div class="ig-container">
+      Impulse.guru UI Kit v1.0 — Все компоненты извлечены с <a href="https://impulse.guru/" style="color: #3333cc;">impulse.guru</a>
+    </div>
+  </footer>
+
+  <!-- Toast уведомление -->
+  <div id="toast" class="toast"></div>
+
+  <script>
+    // Dynamically render all icons
+    (function() {
+      const iconGrid = document.getElementById('icon-grid');
+      const iconCount = document.getElementById('icon-count');
+      const aiIconGrid = document.getElementById('ai-icon-grid');
+      const aiIconCount = document.getElementById('ai-icon-count');
+      const backgroundGrid = document.getElementById('background-grid');
+      const backgroundCount = document.getElementById('background-count');
+      const toast = document.getElementById('toast');
+      
+      // List of icon names (generated from CSS classes)
+      var icons = [
+        "a-arrow-down",
+        "a-arrow-up",
+        "accessibility",
+        "activity",
+        "airplay",
+        "air-vent",
+        "a-large-small",
+        "alarm-clock",
+        "alarm-clock-check",
+        "alarm-clock-minus",
+        "alarm-clock-off",
+        "alarm-clock-plus",
+        "alarm-smoke",
+        "album",
+        "align-center",
+        "align-center-horizontal",
+        "align-center-vertical",
+        "align-end-horizontal",
+        "align-end-vertical",
+        "align-horizontal-distribute-center",
+        "align-horizontal-distribute-end",
+        "align-horizontal-distribute-start",
+        "align-horizontal-justify-center",
+        "align-horizontal-justify-end",
+        "align-horizontal-justify-start",
+        "align-horizontal-space-around",
+        "align-horizontal-space-between",
+        "align-justify",
+        "align-left",
+        "align-right",
+        "align-start-horizontal",
+        "align-start-vertical",
+        "align-vertical-distribute-center",
+        "align-vertical-distribute-end",
+        "align-vertical-distribute-start",
+        "align-vertical-justify-center",
+        "align-vertical-justify-end",
+        "align-vertical-justify-start",
+        "align-vertical-space-around",
+        "align-vertical-space-between",
+        "ambulance",
+        "ampersand",
+        "ampersands",
+        "amphora",
+        "anchor",
+        "angry",
+        "annoyed",
+        "antenna",
+        "anvil",
+        "aperture",
+        "apple",
+        "app-window",
+        "app-window-mac",
+        "archive",
+        "archive-restore",
+        "archive-x",
+        "armchair",
+        "arrow-big-down",
+        "arrow-big-down-dash",
+        "arrow-big-left",
+        "arrow-big-left-dash",
+        "arrow-big-right",
+        "arrow-big-right-dash",
+        "arrow-big-up",
+        "arrow-big-up-dash",
+        "arrow-down",
+        "arrow-down-0-1",
+        "arrow-down-1-0",
+        "arrow-down-a-z",
+        "arrow-down-from-line",
+        "arrow-down-left",
+        "arrow-down-narrow-wide",
+        "arrow-down-right",
+        "arrow-down-to-dot",
+        "arrow-down-to-line",
+        "arrow-down-up",
+        "arrow-down-wide-narrow",
+        "arrow-down-z-a",
+        "arrow-left",
+        "arrow-left-from-line",
+        "arrow-left-right",
+        "arrow-left-to-line",
+        "arrow-right",
+        "arrow-right-from-line",
+        "arrow-right-left",
+        "arrow-right-to-line",
+        "arrows-up-from-line",
+        "arrow-up",
+        "arrow-up-0-1",
+        "arrow-up-1-0",
+        "arrow-up-a-z",
+        "arrow-up-down",
+        "arrow-up-from-dot",
+        "arrow-up-from-line",
+        "arrow-up-left",
+        "arrow-up-narrow-wide",
+        "arrow-up-right",
+        "arrow-up-to-line",
+        "arrow-up-wide-narrow",
+        "arrow-up-z-a",
+        "asterisk",
+        "atom",
+        "at-sign",
+        "audio-lines",
+        "audio-waveform",
+        "award",
+        "axe",
+        "axis-3d",
+        "baby",
+        "backpack",
+        "badge",
+        "badge-alert",
+        "badge-cent",
+        "badge-check",
+        "badge-dollar-sign",
+        "badge-euro",
+        "badge-help",
+        "badge-indian-rupee",
+        "badge-info",
+        "badge-japanese-yen",
+        "badge-minus",
+        "badge-percent",
+        "badge-plus",
+        "badge-pound-sterling",
+        "badge-russian-ruble",
+        "badge-swiss-franc",
+        "badge-x",
+        "baggage-claim",
+        "ban",
+        "banana",
+        "bandage",
+        "banknote",
+        "barcode",
+        "baseline",
+        "bath",
+        "battery",
+        "battery-charging",
+        "battery-full",
+        "battery-low",
+        "battery-medium",
+        "battery-warning",
+        "beaker",
+        "bean",
+        "bean-off",
+        "bed",
+        "bed-double",
+        "bed-single",
+        "beef",
+        "beer",
+        "beer-off",
+        "bell",
+        "bell-dot",
+        "bell-electric",
+        "bell-minus",
+        "bell-off",
+        "bell-plus",
+        "bell-ring",
+        "between-horizontal-end",
+        "between-horizontal-start",
+        "between-vertical-end",
+        "between-vertical-start",
+        "biceps-flexed",
+        "bike",
+        "binary",
+        "binoculars",
+        "biohazard",
+        "bird",
+        "bitcoin",
+        "blend",
+        "blinds",
+        "blocks",
+        "bluetooth",
+        "bluetooth-connected",
+        "bluetooth-off",
+        "bluetooth-searching",
+        "bold",
+        "bolt",
+        "bomb",
+        "bone",
+        "book",
+        "book-a",
+        "book-audio",
+        "book-check",
+        "book-copy",
+        "book-dashed",
+        "book-down",
+        "book-headphones",
+        "book-heart",
+        "book-image",
+        "book-key",
+        "book-lock",
+        "bookmark",
+        "bookmark-check",
+        "book-marked",
+        "bookmark-minus",
+        "bookmark-plus",
+        "bookmark-x",
+        "book-minus",
+        "book-open",
+        "book-open-check",
+        "book-open-text",
+        "book-plus",
+        "book-text",
+        "book-type",
+        "book-up",
+        "book-up-2",
+        "book-user",
+        "book-x",
+        "boom-box",
+        "bot",
+        "bot-message-square",
+        "bot-off",
+        "box",
+        "boxes",
+        "braces",
+        "brackets",
+        "brain",
+        "brain-circuit",
+        "brain-cog",
+        "brick-wall",
+        "briefcase",
+        "briefcase-business",
+        "briefcase-conveyor-belt",
+        "briefcase-medical",
+        "bring-to-front",
+        "brush",
+        "bug",
+        "bug-off",
+        "bug-play",
+        "building",
+        "building-2",
+        "bus",
+        "bus-front",
+        "cable",
+        "cable-car",
+        "cake",
+        "cake-slice",
+        "calculator",
+        "calendar",
+        "calendar-arrow-down",
+        "calendar-arrow-up",
+        "calendar-check",
+        "calendar-check-2",
+        "calendar-clock",
+        "calendar-cog",
+        "calendar-days",
+        "calendar-fold",
+        "calendar-heart",
+        "calendar-minus",
+        "calendar-minus-2",
+        "calendar-off",
+        "calendar-plus",
+        "calendar-plus-2",
+        "calendar-range",
+        "calendar-search",
+        "calendar-x",
+        "calendar-x-2",
+        "camera",
+        "camera-off",
+        "candy",
+        "candy-cane",
+        "candy-off",
+        "cannabis",
+        "captions",
+        "captions-off",
+        "car",
+        "caravan",
+        "car-front",
+        "carrot",
+        "car-taxi-front",
+        "case-lower",
+        "case-sensitive",
+        "case-upper",
+        "cassette-tape",
+        "cast",
+        "castle",
+        "cat",
+        "cctv",
+        "chart-area",
+        "chart-bar",
+        "chart-bar-big",
+        "chart-bar-decreasing",
+        "chart-bar-increasing",
+        "chart-bar-stacked",
+        "chart-candlestick",
+        "chart-column",
+        "chart-column-big",
+        "chart-column-decreasing",
+        "chart-column-increasing",
+        "chart-column-stacked",
+        "chart-gantt",
+        "chart-line",
+        "chart-network",
+        "chart-no-axes-column",
+        "chart-no-axes-column-decreasing",
+        "chart-no-axes-column-increasing",
+        "chart-no-axes-combined",
+        "chart-no-axes-gantt",
+        "chart-pie",
+        "chart-scatter",
+        "chart-spline",
+        "check",
+        "check-check",
+        "chef-hat",
+        "cherry",
+        "chevron-down",
+        "chevron-first",
+        "chevron-last",
+        "chevron-left",
+        "chevron-right",
+        "chevrons-down",
+        "chevrons-down-up",
+        "chevrons-left",
+        "chevrons-left-right",
+        "chevrons-left-right-ellipsis",
+        "chevrons-right",
+        "chevrons-right-left",
+        "chevrons-up",
+        "chevrons-up-down",
+        "chevron-up",
+        "chrome",
+        "church",
+        "cigarette",
+        "cigarette-off",
+        "circle",
+        "circle-alert",
+        "circle-arrow-down",
+        "circle-arrow-left",
+        "circle-arrow-out-down-left",
+        "circle-arrow-out-down-right",
+        "circle-arrow-out-up-left",
+        "circle-arrow-out-up-right",
+        "circle-arrow-right",
+        "circle-arrow-up",
+        "circle-check",
+        "circle-check-big",
+        "circle-chevron-down",
+        "circle-chevron-left",
+        "circle-chevron-right",
+        "circle-chevron-up",
+        "circle-dashed",
+        "circle-divide",
+        "circle-dollar-sign",
+        "circle-dot",
+        "circle-dot-dashed",
+        "circle-ellipsis",
+        "circle-equal",
+        "circle-fading-arrow-up",
+        "circle-fading-plus",
+        "circle-gauge",
+        "circle-help",
+        "circle-minus",
+        "circle-off",
+        "circle-parking",
+        "circle-parking-off",
+        "circle-pause",
+        "circle-percent",
+        "circle-play",
+        "circle-plus",
+        "circle-power",
+        "circle-slash",
+        "circle-slash-2",
+        "circle-stop",
+        "circle-user",
+        "circle-user-round",
+        "circle-x",
+        "circuit-board",
+        "citrus",
+        "clapperboard",
+        "clipboard",
+        "clipboard-check",
+        "clipboard-copy",
+        "clipboard-list",
+        "clipboard-minus",
+        "clipboard-paste",
+        "clipboard-pen",
+        "clipboard-pen-line",
+        "clipboard-plus",
+        "clipboard-type",
+        "clipboard-x",
+        "clock",
+        "clock-1",
+        "clock-10",
+        "clock-11",
+        "clock-12",
+        "clock-2",
+        "clock-3",
+        "clock-4",
+        "clock-5",
+        "clock-6",
+        "clock-7",
+        "clock-8",
+        "clock-9",
+        "clock-alert",
+        "clock-arrow-down",
+        "clock-arrow-up",
+        "cloud",
+        "cloud-cog",
+        "cloud-download",
+        "cloud-drizzle",
+        "cloud-fog",
+        "cloud-hail",
+        "cloud-lightning",
+        "cloud-moon",
+        "cloud-moon-rain",
+        "cloud-off",
+        "cloud-rain",
+        "cloud-rain-wind",
+        "cloud-snow",
+        "cloud-sun",
+        "cloud-sun-rain",
+        "cloud-upload",
+        "cloudy",
+        "clover",
+        "club",
+        "code",
+        "codepen",
+        "codesandbox",
+        "code-xml",
+        "coffee",
+        "cog",
+        "coins",
+        "columns-2",
+        "columns-3",
+        "columns-4",
+        "combine",
+        "command",
+        "compass",
+        "component",
+        "computer",
+        "concierge-bell",
+        "cone",
+        "construction",
+        "contact",
+        "contact-round",
+        "container",
+        "contrast",
+        "cookie",
+        "cooking-pot",
+        "copy",
+        "copy-check",
+        "copyleft",
+        "copy-minus",
+        "copy-plus",
+        "copyright",
+        "copy-slash",
+        "copy-x",
+        "corner-down-left",
+        "corner-down-right",
+        "corner-left-down",
+        "corner-left-up",
+        "corner-right-down",
+        "corner-right-up",
+        "corner-up-left",
+        "corner-up-right",
+        "cpu",
+        "creative-commons",
+        "credit-card",
+        "croissant",
+        "crop",
+        "cross",
+        "crosshair",
+        "crown",
+        "cuboid",
+        "cup-soda",
+        "currency",
+        "cylinder",
+        "dam",
+        "database",
+        "database-backup",
+        "database-zap",
+        "delete",
+        "dessert",
+        "diameter",
+        "diamond",
+        "diamond-minus",
+        "diamond-percent",
+        "diamond-plus",
+        "dice-1",
+        "dice-2",
+        "dice-3",
+        "dice-4",
+        "dice-5",
+        "dice-6",
+        "dices",
+        "diff",
+        "disc",
+        "disc-2",
+        "disc-3",
+        "disc-album",
+        "divide",
+        "dna",
+        "dna-off",
+        "dock",
+        "dog",
+        "dollar-sign",
+        "donut",
+        "door-closed",
+        "door-open",
+        "dot",
+        "download",
+        "drafting-compass",
+        "drama",
+        "dribbble",
+        "drill",
+        "droplet",
+        "droplets",
+        "drum",
+        "drumstick",
+        "dumbbell",
+        "ear",
+        "ear-off",
+        "earth",
+        "earth-lock",
+        "eclipse",
+        "egg",
+        "egg-fried",
+        "egg-off",
+        "ellipsis",
+        "ellipsis-vertical",
+        "equal",
+        "equal-not",
+        "eraser",
+        "ethernet-port",
+        "euro",
+        "expand",
+        "external-link",
+        "eye",
+        "eye-closed",
+        "eye-off",
+        "facebook",
+        "factory",
+        "fan",
+        "fast-forward",
+        "feather",
+        "fence",
+        "ferris-wheel",
+        "figma",
+        "file",
+        "file-archive",
+        "file-audio",
+        "file-audio-2",
+        "file-axis-3d",
+        "file-badge",
+        "file-badge-2",
+        "file-box",
+        "file-chart-column",
+        "file-chart-column-increasing",
+        "file-chart-line",
+        "file-chart-pie",
+        "file-check",
+        "file-check-2",
+        "file-clock",
+        "file-code",
+        "file-code-2",
+        "file-cog",
+        "file-diff",
+        "file-digit",
+        "file-down",
+        "file-heart",
+        "file-image",
+        "file-input",
+        "file-json",
+        "file-json-2",
+        "file-key",
+        "file-key-2",
+        "file-lock",
+        "file-lock-2",
+        "file-minus",
+        "file-minus-2",
+        "file-music",
+        "file-output",
+        "file-pen",
+        "file-pen-line",
+        "file-plus",
+        "file-plus-2",
+        "file-question",
+        "files",
+        "file-scan",
+        "file-search",
+        "file-search-2",
+        "file-sliders",
+        "file-spreadsheet",
+        "file-stack",
+        "file-symlink",
+        "file-terminal",
+        "file-text",
+        "file-type",
+        "file-type-2",
+        "file-up",
+        "file-user",
+        "file-video",
+        "file-video-2",
+        "file-volume",
+        "file-volume-2",
+        "file-warning",
+        "file-x",
+        "file-x-2",
+        "film",
+        "filter",
+        "filter-x",
+        "fingerprint",
+        "fire-extinguisher",
+        "fish",
+        "fish-off",
+        "fish-symbol",
+        "flag",
+        "flag-off",
+        "flag-triangle-left",
+        "flag-triangle-right",
+        "flame",
+        "flame-kindling",
+        "flashlight",
+        "flashlight-off",
+        "flask-conical",
+        "flask-conical-off",
+        "flask-round",
+        "flip-horizontal",
+        "flip-horizontal-2",
+        "flip-vertical",
+        "flip-vertical-2",
+        "flower",
+        "flower-2",
+        "focus",
+        "folder",
+        "folder-archive",
+        "folder-check",
+        "folder-clock",
+        "folder-closed",
+        "folder-code",
+        "folder-cog",
+        "folder-dot",
+        "folder-down",
+        "folder-git",
+        "folder-git-2",
+        "folder-heart",
+        "folder-input",
+        "folder-kanban",
+        "folder-key",
+        "folder-lock",
+        "folder-minus",
+        "folder-open",
+        "folder-open-dot",
+        "folder-output",
+        "folder-pen",
+        "folder-plus",
+        "folder-root",
+        "folders",
+        "folder-search",
+        "folder-search-2",
+        "folder-symlink",
+        "folder-sync",
+        "folder-tree",
+        "folder-up",
+        "folder-x",
+        "fold-horizontal",
+        "fold-vertical",
+        "footprints",
+        "forklift",
+        "forward",
+        "frame",
+        "framer",
+        "frown",
+        "fuel",
+        "fullscreen",
+        "gallery-horizontal",
+        "gallery-horizontal-end",
+        "gallery-thumbnails",
+        "gallery-vertical",
+        "gallery-vertical-end",
+        "gamepad",
+        "gamepad-2",
+        "gauge",
+        "gavel",
+        "gem",
+        "ghost",
+        "gift",
+        "git-branch",
+        "git-branch-plus",
+        "git-commit-horizontal",
+        "git-commit-vertical",
+        "git-compare",
+        "git-compare-arrows",
+        "git-fork",
+        "git-graph",
+        "github",
+        "gitlab",
+        "git-merge",
+        "git-pull-request",
+        "git-pull-request-arrow",
+        "git-pull-request-closed",
+        "git-pull-request-create",
+        "git-pull-request-create-arrow",
+        "git-pull-request-draft",
+        "glasses",
+        "glass-water",
+        "globe",
+        "globe-lock",
+        "goal",
+        "grab",
+        "graduation-cap",
+        "grape",
+        "grid-2x2",
+        "grid-2x2-check",
+        "grid-2x2-plus",
+        "grid-2x2-x",
+        "grid-3x3",
+        "grip",
+        "grip-horizontal",
+        "grip-vertical",
+        "group",
+        "guitar",
+        "ham",
+        "hammer",
+        "hand",
+        "hand-coins",
+        "hand-heart",
+        "hand-helping",
+        "hand-metal",
+        "hand-platter",
+        "handshake",
+        "hard-drive",
+        "hard-drive-download",
+        "hard-drive-upload",
+        "hard-hat",
+        "hash",
+        "haze",
+        "hdmi-port",
+        "heading",
+        "heading-1",
+        "heading-2",
+        "heading-3",
+        "heading-4",
+        "heading-5",
+        "heading-6",
+        "headphone-off",
+        "headphones",
+        "headset",
+        "heart",
+        "heart-crack",
+        "heart-handshake",
+        "heart-off",
+        "heart-pulse",
+        "heater",
+        "hexagon",
+        "highlighter",
+        "history",
+        "hop",
+        "hop-off",
+        "hospital",
+        "hotel",
+        "hourglass",
+        "house",
+        "house-plug",
+        "house-plus",
+        "ice-cream-bowl",
+        "ice-cream-cone",
+        "id-card",
+        "image",
+        "image-down",
+        "image-minus",
+        "image-off",
+        "image-play",
+        "image-plus",
+        "images",
+        "image-up",
+        "import",
+        "inbox",
+        "indent-decrease",
+        "indent-increase",
+        "indian-rupee",
+        "infinity",
+        "info",
+        "inspection-panel",
+        "instagram",
+        "italic",
+        "iteration-ccw",
+        "iteration-cw",
+        "japanese-yen",
+        "joystick",
+        "kanban",
+        "key",
+        "keyboard",
+        "keyboard-music",
+        "keyboard-off",
+        "key-round",
+        "key-square",
+        "lamp",
+        "lamp-ceiling",
+        "lamp-desk",
+        "lamp-floor",
+        "lamp-wall-down",
+        "lamp-wall-up",
+        "landmark",
+        "land-plot",
+        "languages",
+        "laptop",
+        "laptop-minimal",
+        "lasso",
+        "lasso-select",
+        "laugh",
+        "layers",
+        "layers-2",
+        "layers-3",
+        "layout-dashboard",
+        "layout-grid",
+        "layout-list",
+        "layout-panel-left",
+        "layout-panel-top",
+        "layout-template",
+        "leaf",
+        "leafy-green",
+        "lectern",
+        "letter-text",
+        "library",
+        "library-big",
+        "life-buoy",
+        "ligature",
+        "lightbulb",
+        "lightbulb-off",
+        "link",
+        "link-2",
+        "link-2-off",
+        "linkedin",
+        "list",
+        "list-check",
+        "list-checks",
+        "list-collapse",
+        "list-end",
+        "list-filter",
+        "list-minus",
+        "list-music",
+        "list-ordered",
+        "list-plus",
+        "list-restart",
+        "list-start",
+        "list-todo",
+        "list-tree",
+        "list-video",
+        "list-x",
+        "loader",
+        "loader-circle",
+        "loader-pinwheel",
+        "locate",
+        "locate-fixed",
+        "locate-off",
+        "lock",
+        "lock-keyhole",
+        "lock-keyhole-open",
+        "lock-open",
+        "log-in",
+        "log-out",
+        "logs",
+        "lollipop",
+        "luggage",
+        "magnet",
+        "mail",
+        "mailbox",
+        "mail-check",
+        "mail-minus",
+        "mail-open",
+        "mail-plus",
+        "mail-question",
+        "mails",
+        "mail-search",
+        "mail-warning",
+        "mail-x",
+        "map",
+        "map-pin",
+        "map-pin-check",
+        "map-pin-check-inside",
+        "map-pin-house",
+        "map-pin-minus",
+        "map-pin-minus-inside",
+        "map-pinned",
+        "map-pin-off",
+        "map-pin-plus",
+        "map-pin-plus-inside",
+        "map-pin-x",
+        "map-pin-x-inside",
+        "martini",
+        "maximize",
+        "maximize-2",
+        "medal",
+        "megaphone",
+        "megaphone-off",
+        "meh",
+        "memory-stick",
+        "menu",
+        "merge",
+        "message-circle",
+        "message-circle-code",
+        "message-circle-dashed",
+        "message-circle-heart",
+        "message-circle-more",
+        "message-circle-off",
+        "message-circle-plus",
+        "message-circle-question",
+        "message-circle-reply",
+        "message-circle-warning",
+        "message-circle-x",
+        "message-square",
+        "message-square-code",
+        "message-square-dashed",
+        "message-square-diff",
+        "message-square-dot",
+        "message-square-heart",
+        "message-square-lock",
+        "message-square-more",
+        "message-square-off",
+        "message-square-plus",
+        "message-square-quote",
+        "message-square-reply",
+        "message-square-share",
+        "message-square-text",
+        "message-square-warning",
+        "message-square-x",
+        "messages-square",
+        "mic",
+        "mic-off",
+        "microchip",
+        "microscope",
+        "microwave",
+        "mic-vocal",
+        "milestone",
+        "milk",
+        "milk-off",
+        "minimize",
+        "minimize-2",
+        "minus",
+        "monitor",
+        "monitor-check",
+        "monitor-cog",
+        "monitor-dot",
+        "monitor-down",
+        "monitor-off",
+        "monitor-pause",
+        "monitor-play",
+        "monitor-smartphone",
+        "monitor-speaker",
+        "monitor-stop",
+        "monitor-up",
+        "monitor-x",
+        "moon",
+        "moon-star",
+        "mountain",
+        "mountain-snow",
+        "mouse",
+        "mouse-off",
+        "mouse-pointer",
+        "mouse-pointer-2",
+        "mouse-pointer-ban",
+        "mouse-pointer-click",
+        "move",
+        "move-3d",
+        "move-diagonal",
+        "move-diagonal-2",
+        "move-down",
+        "move-down-left",
+        "move-down-right",
+        "move-horizontal",
+        "move-left",
+        "move-right",
+        "move-up",
+        "move-up-left",
+        "move-up-right",
+        "move-vertical",
+        "music",
+        "music-2",
+        "music-3",
+        "music-4",
+        "navigation",
+        "navigation-2",
+        "navigation-2-off",
+        "navigation-off",
+        "network",
+        "newspaper",
+        "nfc",
+        "notebook",
+        "notebook-pen",
+        "notebook-tabs",
+        "notebook-text",
+        "notepad-text",
+        "notepad-text-dashed",
+        "nut",
+        "nut-off",
+        "octagon",
+        "octagon-alert",
+        "octagon-minus",
+        "octagon-pause",
+        "octagon-x",
+        "omega",
+        "option",
+        "orbit",
+        "origami",
+        "package",
+        "package-2",
+        "package-check",
+        "package-minus",
+        "package-open",
+        "package-plus",
+        "package-search",
+        "package-x",
+        "paintbrush",
+        "paintbrush-vertical",
+        "paint-bucket",
+        "paint-roller",
+        "palette",
+        "panel-bottom",
+        "panel-bottom-close",
+        "panel-bottom-dashed",
+        "panel-bottom-open",
+        "panel-left",
+        "panel-left-close",
+        "panel-left-dashed",
+        "panel-left-open",
+        "panel-right",
+        "panel-right-close",
+        "panel-right-dashed",
+        "panel-right-open",
+        "panels-left-bottom",
+        "panels-right-bottom",
+        "panels-top-left",
+        "panel-top",
+        "panel-top-close",
+        "panel-top-dashed",
+        "panel-top-open",
+        "paperclip",
+        "parentheses",
+        "parking-meter",
+        "party-popper",
+        "pause",
+        "paw-print",
+        "pc-case",
+        "pen",
+        "pencil",
+        "pencil-line",
+        "pencil-off",
+        "pencil-ruler",
+        "pen-line",
+        "pen-off",
+        "pentagon",
+        "pen-tool",
+        "percent",
+        "person-standing",
+        "philippine-peso",
+        "phone",
+        "phone-call",
+        "phone-forwarded",
+        "phone-incoming",
+        "phone-missed",
+        "phone-off",
+        "phone-outgoing",
+        "pi",
+        "piano",
+        "pickaxe",
+        "picture-in-picture",
+        "picture-in-picture-2",
+        "piggy-bank",
+        "pilcrow",
+        "pilcrow-left",
+        "pilcrow-right",
+        "pill",
+        "pill-bottle",
+        "pin",
+        "pin-off",
+        "pipette",
+        "pizza",
+        "plane",
+        "plane-landing",
+        "plane-takeoff",
+        "play",
+        "plug",
+        "plug-2",
+        "plug-zap",
+        "plus",
+        "pocket",
+        "pocket-knife",
+        "podcast",
+        "pointer",
+        "pointer-off",
+        "popcorn",
+        "popsicle",
+        "pound-sterling",
+        "power",
+        "power-off",
+        "presentation",
+        "printer",
+        "printer-check",
+        "projector",
+        "proportions",
+        "puzzle",
+        "pyramid",
+        "qr-code",
+        "quote",
+        "rabbit",
+        "radar",
+        "radiation",
+        "radical",
+        "radio",
+        "radio-receiver",
+        "radio-tower",
+        "radius",
+        "rail-symbol",
+        "rainbow",
+        "rat",
+        "ratio",
+        "receipt",
+        "receipt-cent",
+        "receipt-euro",
+        "receipt-indian-rupee",
+        "receipt-japanese-yen",
+        "receipt-pound-sterling",
+        "receipt-russian-ruble",
+        "receipt-swiss-franc",
+        "receipt-text",
+        "rectangle-ellipsis",
+        "rectangle-horizontal",
+        "rectangle-vertical",
+        "recycle",
+        "redo",
+        "redo-2",
+        "redo-dot",
+        "refresh-ccw",
+        "refresh-ccw-dot",
+        "refresh-cw",
+        "refresh-cw-off",
+        "refrigerator",
+        "regex",
+        "remove-formatting",
+        "repeat",
+        "repeat-1",
+        "repeat-2",
+        "replace",
+        "replace-all",
+        "reply",
+        "reply-all",
+        "rewind",
+        "ribbon",
+        "rocket",
+        "rocking-chair",
+        "roller-coaster",
+        "rotate-3d",
+        "rotate-ccw",
+        "rotate-ccw-square",
+        "rotate-cw",
+        "rotate-cw-square",
+        "route",
+        "route-off",
+        "router",
+        "rows-2",
+        "rows-3",
+        "rows-4",
+        "rss",
+        "ruler",
+        "russian-ruble",
+        "sailboat",
+        "salad",
+        "sandwich",
+        "satellite",
+        "satellite-dish",
+        "save",
+        "save-all",
+        "save-off",
+        "scale",
+        "scale-3d",
+        "scaling",
+        "scan",
+        "scan-barcode",
+        "scan-eye",
+        "scan-face",
+        "scan-line",
+        "scan-qr-code",
+        "scan-search",
+        "scan-text",
+        "school",
+        "scissors",
+        "scissors-line-dashed",
+        "screen-share",
+        "screen-share-off",
+        "scroll",
+        "scroll-text",
+        "search",
+        "search-check",
+        "search-code",
+        "search-slash",
+        "search-x",
+        "section",
+        "send",
+        "send-horizontal",
+        "send-to-back",
+        "separator-horizontal",
+        "separator-vertical",
+        "server",
+        "server-cog",
+        "server-crash",
+        "server-off",
+        "settings",
+        "settings-2",
+        "shapes",
+        "share",
+        "share-2",
+        "sheet",
+        "shell",
+        "shield",
+        "shield-alert",
+        "shield-ban",
+        "shield-check",
+        "shield-ellipsis",
+        "shield-half",
+        "shield-minus",
+        "shield-off",
+        "shield-plus",
+        "shield-question",
+        "shield-x",
+        "ship",
+        "ship-wheel",
+        "shirt",
+        "shopping-bag",
+        "shopping-basket",
+        "shopping-cart",
+        "shovel",
+        "shower-head",
+        "shrink",
+        "shrub",
+        "shuffle",
+        "sigma",
+        "signal",
+        "signal-high",
+        "signal-low",
+        "signal-medium",
+        "signal-zero",
+        "signature",
+        "signpost",
+        "signpost-big",
+        "siren",
+        "skip-back",
+        "skip-forward",
+        "skull",
+        "slack",
+        "slash",
+        "slice",
+        "sliders-horizontal",
+        "sliders-vertical",
+        "smartphone",
+        "smartphone-charging",
+        "smartphone-nfc",
+        "smile",
+        "smile-plus",
+        "snail",
+        "snowflake",
+        "sofa",
+        "soup",
+        "space",
+        "spade",
+        "sparkle",
+        "sparkles",
+        "speaker",
+        "speech",
+        "spell-check",
+        "spell-check-2",
+        "spline",
+        "split",
+        "spray-can",
+        "sprout",
+        "square",
+        "square-activity",
+        "square-arrow-down",
+        "square-arrow-down-left",
+        "square-arrow-down-right",
+        "square-arrow-left",
+        "square-arrow-out-down-left",
+        "square-arrow-out-down-right",
+        "square-arrow-out-up-left",
+        "square-arrow-out-up-right",
+        "square-arrow-right",
+        "square-arrow-up",
+        "square-arrow-up-left",
+        "square-arrow-up-right",
+        "square-asterisk",
+        "square-bottom-dashed-scissors",
+        "square-chart-gantt",
+        "square-check",
+        "square-check-big",
+        "square-chevron-down",
+        "square-chevron-left",
+        "square-chevron-right",
+        "square-chevron-up",
+        "square-code",
+        "square-dashed",
+        "square-dashed-bottom",
+        "square-dashed-bottom-code",
+        "square-dashed-kanban",
+        "square-dashed-mouse-pointer",
+        "square-divide",
+        "square-dot",
+        "square-equal",
+        "square-function",
+        "square-kanban",
+        "square-library",
+        "square-m",
+        "square-menu",
+        "square-minus",
+        "square-mouse-pointer",
+        "square-parking",
+        "square-parking-off",
+        "square-pen",
+        "square-percent",
+        "square-pi",
+        "square-pilcrow",
+        "square-play",
+        "square-plus",
+        "square-power",
+        "square-radical",
+        "square-scissors",
+        "square-sigma",
+        "square-slash",
+        "square-split-horizontal",
+        "square-split-vertical",
+        "square-square",
+        "square-stack",
+        "square-terminal",
+        "square-user",
+        "square-user-round",
+        "square-x",
+        "squircle",
+        "squirrel",
+        "stamp",
+        "star",
+        "star-half",
+        "star-off",
+        "step-back",
+        "step-forward",
+        "stethoscope",
+        "sticker",
+        "sticky-note",
+        "store",
+        "stretch-horizontal",
+        "stretch-vertical",
+        "strikethrough",
+        "subscript",
+        "sun",
+        "sun-dim",
+        "sun-medium",
+        "sun-moon",
+        "sunrise",
+        "sunset",
+        "sun-snow",
+        "superscript",
+        "swatch-book",
+        "swiss-franc",
+        "switch-camera",
+        "sword",
+        "swords",
+        "syringe",
+        "table",
+        "table-2",
+        "table-cells-merge",
+        "table-cells-split",
+        "table-columns-split",
+        "table-of-contents",
+        "table-properties",
+        "table-rows-split",
+        "tablet",
+        "tablets",
+        "tablet-smartphone",
+        "tag",
+        "tags",
+        "tally-1",
+        "tally-2",
+        "tally-3",
+        "tally-4",
+        "tally-5",
+        "tangent",
+        "target",
+        "telescope",
+        "tent",
+        "tent-tree",
+        "terminal",
+        "test-tube",
+        "test-tube-diagonal",
+        "test-tubes",
+        "text",
+        "text-cursor",
+        "text-cursor-input",
+        "text-quote",
+        "text-search",
+        "text-select",
+        "theater",
+        "thermometer",
+        "thermometer-snowflake",
+        "thermometer-sun",
+        "thumbs-down",
+        "thumbs-up",
+        "ticket",
+        "ticket-check",
+        "ticket-minus",
+        "ticket-percent",
+        "ticket-plus",
+        "tickets",
+        "ticket-slash",
+        "tickets-plane",
+        "ticket-x",
+        "timer",
+        "timer-off",
+        "timer-reset",
+        "toggle-left",
+        "toggle-right",
+        "tornado",
+        "torus",
+        "touchpad",
+        "touchpad-off",
+        "tower-control",
+        "toy-brick",
+        "tractor",
+        "traffic-cone",
+        "traffic-light",
+        "train-front",
+        "train-front-tunnel",
+        "train-track",
+        "tram-front",
+        "trash",
+        "trash-2",
+        "tree-deciduous",
+        "tree-palm",
+        "tree-pine",
+        "trees",
+        "trello",
+        "trending-down",
+        "trending-up",
+        "trending-up-down",
+        "triangle",
+        "triangle-alert",
+        "triangle-right",
+        "trophy",
+        "truck",
+        "turtle",
+        "tv",
+        "tv-minimal",
+        "tv-minimal-play",
+        "twitch",
+        "twitter",
+        "type",
+        "type-outline",
+        "umbrella",
+        "umbrella-off",
+        "underline",
+        "undo",
+        "undo-2",
+        "undo-dot",
+        "unfold-horizontal",
+        "unfold-vertical",
+        "ungroup",
+        "university",
+        "unlink",
+        "unlink-2",
+        "unplug",
+        "upload",
+        "usb",
+        "user",
+        "user-check",
+        "user-cog",
+        "user-minus",
+        "user-pen",
+        "user-plus",
+        "user-round",
+        "user-round-check",
+        "user-round-cog",
+        "user-round-minus",
+        "user-round-pen",
+        "user-round-plus",
+        "user-round-search",
+        "user-round-x",
+        "users",
+        "user-search",
+        "users-round",
+        "user-x",
+        "utensils",
+        "utensils-crossed",
+        "utility-pole",
+        "variable",
+        "vault",
+        "vegan",
+        "venetian-mask",
+        "vibrate",
+        "vibrate-off",
+        "video",
+        "video-off",
+        "videotape",
+        "view",
+        "voicemail",
+        "volleyball",
+        "volume",
+        "volume-1",
+        "volume-2",
+        "volume-off",
+        "volume-x",
+        "vote",
+        "wallet",
+        "wallet-cards",
+        "wallet-minimal",
+        "wallpaper",
+        "wand",
+        "wand-sparkles",
+        "warehouse",
+        "washing-machine",
+        "watch",
+        "waves",
+        "waypoints",
+        "webcam",
+        "webhook",
+        "webhook-off",
+        "weight",
+        "wheat",
+        "wheat-off",
+        "whole-word",
+        "wifi",
+        "wifi-high",
+        "wifi-low",
+        "wifi-off",
+        "wifi-zero",
+        "wind",
+        "wine",
+        "wine-off",
+        "workflow",
+        "worm",
+        "wrap-text",
+        "wrench",
+        "x",
+        "youtube",
+        "zap",
+        "zap-off",
+        "zoom-in",
+        "zoom-out"
+      ];
+      // Remove duplicates
+      icons = icons.filter(function(item, pos) {
+        return icons.indexOf(item) === pos;
+      });
+      
+      iconCount.textContent = icons.length;
+      
+      icons.forEach(function(name) {
+        var el = document.createElement('div');
+        el.className = 'icon-item';
+        el.innerHTML = '<span class="ig-icon ig-icon--' + name + '"></span><div class="icon-item__name">' + name + '</div>';
+        
+        el.addEventListener('click', function() {
+          var html = '<span class="ig-icon ig-icon--' + name + '"></span>';
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText('<span class="ig-icon ig-icon--' + name + '"></span>');
+          }
+          toast.textContent = '✓ Скопировано: ig-icon--' + name;
+          toast.classList.add('toast--visible');
+          setTimeout(function() {
+            toast.classList.remove('toast--visible');
+          }, 2000);
+        });
+        
+        iconGrid.appendChild(el);
+      });
+
+      var aiIcons = [
+        "alice_ai(yandexGPT).svg",
+        "Alice_AI(\u043d\u0430 \u043f\u043e\u0438\u0441\u043a\u0435).svg",
+        "chatgpt.svg",
+        "deepseek.svg",
+        "gemini.svg",
+        "gigachat.svg",
+        "Google AI Overview.svg",
+        "perplexity.svg"
+      ];
+
+      aiIconCount.textContent = aiIcons.length;
+      aiIcons.forEach(function(fileName) {
+        var path = "icon_ai/" + fileName;
+        var src = encodeURI(path);
+        var el = document.createElement('div');
+        el.className = 'icon-item';
+        el.innerHTML = '<img class="ai-icon" src="' + src + '" alt="' + fileName + '"><div class="icon-item__name">' + fileName.replace('.svg', '') + '</div>';
+        el.addEventListener('click', function() {
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(path);
+          }
+          toast.textContent = '✓ Скопировано: ' + path;
+          toast.classList.add('toast--visible');
+          setTimeout(function() {
+            toast.classList.remove('toast--visible');
+          }, 2000);
+        });
+        aiIconGrid.appendChild(el);
+      });
+
+      var backgrounds = [
+        "blue-background-3d-2560x1440-10246 (1).jpg",
+        "d57e56207662907.6723e4ea4a476.jpg"
+      ];
+
+      backgroundCount.textContent = backgrounds.length;
+      backgrounds.forEach(function(fileName) {
+        var path = "backgrounds/" + fileName;
+        var src = encodeURI(path);
+        var el = document.createElement('div');
+        el.className = 'bg-preview-item';
+        el.innerHTML = '<div class="bg-preview-frame"><img src="' + src + '" alt="' + fileName + '"></div><div class="icon-item__name">' + fileName + '</div>';
+        el.addEventListener('click', function() {
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(path);
+          }
+          toast.textContent = '✓ Скопировано: ' + path;
+          toast.classList.add('toast--visible');
+          setTimeout(function() {
+            toast.classList.remove('toast--visible');
+          }, 2000);
+        });
+        backgroundGrid.appendChild(el);
+      });
+    })();
+  </script>
+
+</body>
+</html>
+
+
+
+

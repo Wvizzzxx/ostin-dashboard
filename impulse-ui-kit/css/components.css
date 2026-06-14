@@ -1,0 +1,1008 @@
+/* ============================================
+   IMPULSE.GURU UI KIT — Components
+   ============================================
+   
+   Импорт: <link rel="stylesheet" href="impulse-ui-kit/css/components.css">
+   ============================================ */
+
+@import url('./variables.css');
+
+/* ═══════════════════════════════════════════
+   КНОПКИ
+   ═══════════════════════════════════════════ */
+
+.ig-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: var(--ig-btn-height);
+  padding: var(--ig-btn-padding);
+  font-family: var(--ig-font-family);
+  font-size: var(--ig-btn-font-size);
+  font-weight: var(--ig-btn-font-weight);
+  line-height: 1;
+  text-decoration: none;
+  border-radius: var(--ig-btn-radius);
+  border: none;
+  cursor: pointer;
+  transition: all var(--ig-transition-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Кнопка — Заливка (основная) */
+.ig-btn--primary {
+  background-color: var(--ig-btn-fill-bg);
+  color: var(--ig-btn-fill-color);
+  border: var(--ig-btn-fill-border);
+}
+
+.ig-btn--primary:hover {
+  background-color: var(--ig-btn-fill-hover-bg);
+  color: var(--ig-btn-fill-hover-color);
+  border-color: var(--ig-primary-bright);
+}
+
+/* Кнопка — Контур */
+.ig-btn--outline {
+  background-color: var(--ig-btn-outline-bg);
+  color: var(--ig-btn-outline-color);
+  border: var(--ig-btn-outline-border);
+}
+
+.ig-btn--outline:hover {
+  background-color: var(--ig-btn-outline-hover-bg);
+  color: var(--ig-btn-outline-hover-color);
+  border-color: var(--ig-primary);
+}
+
+/* Кнопка — Текстовая */
+.ig-btn--text {
+  background: transparent;
+  color: var(--ig-text-dark);
+  border: none;
+  height: auto;
+  padding: 0;
+  font-weight: var(--ig-font-light);
+}
+
+.ig-btn--text:hover {
+  color: var(--ig-text-accent);
+}
+
+/* Кнопка — Акцентная (красная) */
+.ig-btn--accent {
+  background-color: var(--ig-accent-red);
+  color: var(--ig-white);
+  border: 1px solid var(--ig-accent-red);
+  border-radius: var(--ig-radius-circle);
+  font-size: var(--ig-font-xs);
+  font-weight: var(--ig-font-regular);
+}
+
+.ig-btn--accent:hover {
+  background-color: #b00000;
+  border-color: #b00000;
+}
+
+/* Кнопка — Белая (на тёмном фоне) */
+.ig-btn--white {
+  background-color: var(--ig-white);
+  color: var(--ig-text-dark);
+  border: 1px solid var(--ig-white);
+}
+
+.ig-btn--white:hover {
+  background-color: transparent;
+  color: var(--ig-white);
+}
+
+/* Кнопка — градиентная */
+.ig-btn--gradient {
+  background: var(--ig-gradient-primary);
+  color: var(--ig-white);
+  border: none;
+}
+
+.ig-btn--gradient:hover {
+  opacity: 0.9;
+  color: var(--ig-white);
+}
+
+/* Размеры кнопок */
+.ig-btn--sm {
+  height: 36px;
+  padding: 0 16px;
+  font-size: var(--ig-font-sm);
+}
+
+.ig-btn--lg {
+  height: 60px;
+  padding: 0 32px;
+  font-size: var(--ig-font-md);
+}
+
+.ig-btn--xl {
+  height: 70px;
+  padding: 0 40px;
+  font-size: 18px;
+}
+
+/* Кнопка — полная ширина */
+.ig-btn--block {
+  width: 100%;
+}
+
+/* Кнопка — с иконкой */
+.ig-btn--icon {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.ig-btn--icon img,
+.ig-btn--icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Кнопка — круглая с анимацией */
+.ig-btn--circle-anim {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--ig-radius-circle);
+  padding: 0;
+  background: var(--ig-bg-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.ig-btn--circle-anim::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ig-primary);
+  border-radius: var(--ig-radius-circle);
+  transform: scale(0);
+  transition: transform var(--ig-transition-base);
+}
+
+.ig-btn--circle-anim:hover::after {
+  transform: scale(1);
+}
+
+/* ═══════════════════════════════════════════
+   КАРТОЧКИ
+   ═══════════════════════════════════════════ */
+
+.ig-card {
+  background: var(--ig-white);
+  border-radius: var(--ig-radius-md);
+  padding: var(--ig-space-xl);
+  transition: all var(--ig-transition-base);
+}
+
+.ig-card--light {
+  background: var(--ig-bg-light);
+}
+
+.ig-card--bordered {
+  border: 1px solid var(--ig-primary-ultralight);
+}
+
+.ig-card--shadow {
+  box-shadow: var(--ig-shadow-md);
+}
+
+.ig-card--hover:hover {
+  box-shadow: var(--ig-shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Карточка с номером */
+.ig-card--numbered {
+  position: relative;
+  padding-top: calc(var(--ig-space-xl) + 50px);
+}
+
+.ig-card__number {
+  position: absolute;
+  top: var(--ig-space-xl);
+  left: var(--ig-space-xl);
+  font-size: var(--ig-font-2xl);
+  font-weight: var(--ig-font-medium);
+  color: var(--ig-primary-bright);
+  line-height: 1;
+}
+
+/* Карточка с иконкой */
+.ig-card__icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--ig-space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ig-card__icon img {
+  width: 48px;
+  height: 48px;
+}
+
+.ig-card__title {
+  font-size: var(--ig-font-lg);
+  font-weight: var(--ig-font-medium);
+  color: var(--ig-text-dark);
+  margin-bottom: var(--ig-space-sm);
+}
+
+.ig-card__text {
+  font-size: var(--ig-font-base);
+  color: var(--ig-text-dark);
+  font-weight: var(--ig-font-light);
+  line-height: var(--ig-line-height-base);
+}
+
+/* Визуализации для исследовательских срезов */
+.ig-viz-card {
+  border: 1px solid rgba(32, 53, 126, 0.12);
+  border-radius: var(--ig-radius-md);
+  background: var(--ig-white);
+}
+
+.ig-viz-kicker {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ig-viz-bars {
+  display: grid;
+  gap: 8px;
+}
+
+.ig-viz-bar-row {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) 58px;
+  align-items: center;
+  gap: 10px;
+  color: var(--ig-text-dark);
+}
+
+.ig-viz-bar-row span {
+  overflow: hidden;
+  font-size: var(--ig-font-xs);
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ig-viz-bar-row strong {
+  font-size: var(--ig-font-xs);
+  font-weight: var(--ig-font-medium);
+  line-height: 1;
+  text-align: right;
+}
+
+.ig-viz-bar-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--ig-radius-circle);
+  background: rgba(51, 51, 204, 0.08);
+}
+
+.ig-viz-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--ig-primary);
+}
+
+.ig-viz-bar-row--accent {
+  color: var(--ig-primary);
+}
+
+.ig-viz-bar-row--accent .ig-viz-bar-fill {
+  background: var(--ig-primary-bright);
+}
+
+.ig-viz-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--ig-text-dark);
+}
+
+.ig-viz-table th,
+.ig-viz-table td {
+  padding: 7px 6px;
+  border-bottom: 1px solid rgba(32, 53, 126, 0.1);
+  text-align: left;
+  vertical-align: top;
+}
+
+.ig-viz-table th {
+  color: rgba(0, 0, 102, 0.58);
+  font-size: var(--ig-font-xs);
+  font-weight: var(--ig-font-regular);
+  line-height: 1.2;
+}
+
+.ig-viz-table td {
+  font-size: var(--ig-font-xs);
+  line-height: 1.25;
+}
+
+.ig-viz-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.ig-viz-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ig-viz-tags span {
+  padding: 7px 9px;
+  border: 1px solid rgba(32, 53, 126, 0.12);
+  border-radius: var(--ig-radius-circle);
+  background: rgba(51, 51, 204, 0.03);
+  color: rgba(0, 0, 102, 0.62);
+  font-size: var(--ig-font-xs);
+  line-height: 1.2;
+}
+
+.ig-viz-donut-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ig-viz-donut {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+}
+
+.ig-viz-donut__chart {
+  width: 56px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ig-viz-donut-bg, conic-gradient(var(--ig-primary) 0 100%));
+  position: relative;
+}
+
+.ig-viz-donut__chart::after {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border-radius: inherit;
+  background: var(--ig-white);
+}
+
+.ig-viz-donut__label {
+  max-width: 100%;
+  color: var(--ig-text-dark);
+  font-size: var(--ig-font-xs);
+  font-weight: var(--ig-font-medium);
+  line-height: 1.1;
+  text-align: center;
+}
+
+.ig-viz-donut__legend {
+  display: grid;
+  gap: 3px;
+  width: 100%;
+}
+
+.ig-viz-donut__legend span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(0, 0, 102, 0.62);
+  font-size: 10px;
+  line-height: 1.1;
+}
+
+.ig-viz-donut__legend i {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--dot, var(--ig-primary));
+}
+
+/* Карточка — услуга (с hover-эффектом как на сайте) */
+.ig-service-card {
+  position: relative;
+  background: var(--ig-bg-light);
+  padding: var(--ig-space-xl);
+  border-radius: var(--ig-radius-md);
+  overflow: hidden;
+  transition: all var(--ig-transition-base);
+  cursor: pointer;
+}
+
+.ig-service-card__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  width: 130px;
+  background: var(--ig-bg-light);
+  transition: all 0.6s ease-out;
+  z-index: 0;
+}
+
+.ig-service-card:hover .ig-service-card__bg {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+
+.ig-service-card__content {
+  position: relative;
+  z-index: 1;
+}
+
+.ig-service-card__title {
+  font-size: var(--ig-font-2xl);
+  font-weight: var(--ig-font-medium);
+  color: var(--ig-text-dark);
+  line-height: var(--ig-line-height-tight);
+  margin-bottom: var(--ig-space-sm);
+}
+
+.ig-service-card__link {
+  font-size: var(--ig-font-lg);
+  font-weight: var(--ig-font-light);
+  color: var(--ig-text-accent);
+  letter-spacing: var(--ig-letter-spacing);
+}
+
+/* ═══════════════════════════════════════════
+   ФОРМЫ
+   ═══════════════════════════════════════════ */
+
+.ig-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ig-input-gap);
+  align-items: flex-end;
+}
+
+.ig-form__group {
+  flex: 1;
+  min-width: 180px;
+}
+
+.ig-form__label {
+  display: block;
+  font-size: var(--ig-font-base);
+  font-weight: var(--ig-font-regular);
+  color: var(--ig-text-accent);
+  margin-bottom: 6px;
+}
+
+.ig-form__input,
+.ig-form__textarea,
+.ig-form__select {
+  width: 100%;
+  height: var(--ig-input-height);
+  padding: var(--ig-input-padding);
+  font-family: var(--ig-font-family);
+  font-size: var(--ig-input-font-size);
+  font-weight: var(--ig-font-regular);
+  color: var(--ig-input-color);
+  background-color: var(--ig-input-bg);
+  border: var(--ig-input-border);
+  border-radius: var(--ig-input-radius);
+  outline: none;
+  transition: all var(--ig-transition-fast);
+}
+
+.ig-form__input::placeholder,
+.ig-form__textarea::placeholder {
+  color: rgba(0, 0, 102, 0.4);
+}
+
+.ig-form__input:focus,
+.ig-form__textarea:focus,
+.ig-form__select:focus {
+  border-color: var(--ig-primary);
+  box-shadow: 0 0 0 3px rgba(51, 51, 204, 0.15);
+}
+
+.ig-form__textarea {
+  height: auto;
+  min-height: 120px;
+  padding: 16px;
+  resize: vertical;
+}
+
+.ig-form__select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23000066' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+/* Стилизованная горизонтальная форма (как на сайте) */
+.ig-form--horizontal .ig-form__group {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.ig-form--horizontal .ig-form__submit {
+  flex: 0 0 auto;
+}
+
+/* Текст согласия */
+.ig-form__consent {
+  width: 100%;
+  font-size: var(--ig-font-sm);
+  color: var(--ig-text-dark);
+  font-weight: var(--ig-font-light);
+  line-height: var(--ig-line-height-base);
+}
+
+.ig-form__consent a {
+  color: var(--ig-text-primary);
+}
+
+/* ═══════════════════════════════════════════
+   НАВИГАЦИЯ / ХЕДЕР
+   ═══════════════════════════════════════════ */
+
+.ig-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--ig-bg-nav);
+  height: 70px;
+}
+
+.ig-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--ig-container-max);
+  margin: 0 auto;
+  padding: 0 var(--ig-container-padding);
+}
+
+.ig-header__logo {
+  height: 29px;
+  width: 222px;
+}
+
+.ig-header__logo img {
+  height: 100%;
+  width: auto;
+}
+
+.ig-header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--ig-space-lg);
+}
+
+.ig-header__link {
+  color: var(--ig-white);
+  font-size: var(--ig-font-base);
+  font-weight: var(--ig-font-regular);
+  text-decoration: none;
+  transition: color var(--ig-transition-fast);
+}
+
+.ig-header__link:hover {
+  color: var(--ig-primary-ultralight);
+}
+
+/* Вторая полоса хедера (город, телефон) */
+.ig-subheader {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  height: 90px;
+  background: var(--ig-bg-gradient-h);
+}
+
+.ig-subheader__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--ig-container-max);
+  margin: 0 auto;
+  padding: 0 var(--ig-container-padding);
+}
+
+/* ═══════════════════════════════════════════
+   БЕЙДЖИ / ТЕГИ
+   ═══════════════════════════════════════════ */
+
+.ig-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  min-width: 130px;
+  padding: 0 20px;
+  background: var(--ig-bg-light);
+  font-size: var(--ig-font-2xl);
+  font-weight: var(--ig-font-medium);
+  color: var(--ig-text-dark);
+  line-height: 1;
+}
+
+.ig-badge--accent {
+  position: relative;
+}
+
+.ig-badge--accent::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--ig-accent-red);
+  border-radius: var(--ig-radius-circle);
+}
+
+.ig-badge--accent::before {
+  content: '+1';
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: var(--ig-font-xs);
+  font-weight: var(--ig-font-regular);
+  color: var(--ig-white);
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════════
+   СЕПАРАТОРЫ
+   ═══════════════════════════════════════════ */
+
+.ig-divider {
+  height: 1px;
+  background: var(--ig-text-dark);
+  opacity: 0.3;
+}
+
+.ig-divider--light {
+  background: var(--ig-bg-light);
+  opacity: 1;
+}
+
+.ig-divider--animated {
+  position: relative;
+  overflow: hidden;
+}
+
+.ig-divider--animated::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -1px;
+  width: 3px;
+  height: 3px;
+  background: var(--ig-text-dark);
+  border-radius: 50%;
+  animation: ig-divider-move 3s ease-in-out infinite;
+}
+
+@keyframes ig-divider-move {
+  0%   { left: -2px; opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { left: calc(100% + 2px); opacity: 1; }
+  60%  { opacity: 0; }
+  100% { left: -2px; opacity: 0; }
+}
+
+/* ═══════════════════════════════════════════
+   СОЦИАЛЬНЫЕ ИКОНКИ
+   ═══════════════════════════════════════════ */
+
+.ig-social-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--ig-space-sm);
+}
+
+.ig-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  transition: all var(--ig-transition-fast);
+  position: relative;
+}
+
+.ig-social-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.ig-social-icon__label {
+  position: absolute;
+  right: 100%;
+  margin-right: 10px;
+  white-space: nowrap;
+  font-size: var(--ig-font-base);
+  font-weight: var(--ig-font-light);
+  letter-spacing: var(--ig-letter-spacing);
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all var(--ig-transition-fast);
+  pointer-events: none;
+  color: var(--ig-white);
+}
+
+.ig-social-icon:hover .ig-social-icon__label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ig-social-icon--wa .ig-social-icon__label { color: var(--ig-white); }
+.ig-social-icon--tg .ig-social-icon__label { color: var(--ig-white); }
+
+/* ═══════════════════════════════════════════
+   МОБИЛЬНОЕ МЕНЮ
+   ═══════════════════════════════════════════ */
+
+.ig-mobile-toggle {
+  display: none;
+  width: 45px;
+  height: 16px;
+  position: relative;
+  cursor: pointer;
+}
+
+.ig-mobile-toggle__line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ig-white);
+  position: absolute;
+  left: 0;
+}
+
+.ig-mobile-toggle__line:nth-child(1) { top: 0; }
+.ig-mobile-toggle__line:nth-child(2) { top: 7px; width: 30px; }
+.ig-mobile-toggle__line:nth-child(3) { top: 14px; }
+
+@media (max-width: 980px) {
+  .ig-mobile-toggle {
+    display: block;
+  }
+  
+  .ig-header__nav {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   СТРЕЛКА (скролл вниз)
+   ═══════════════════════════════════════════ */
+
+.ig-arrow-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.ig-arrow-down img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ═══════════════════════════════════════════
+   СКРОЛЛИРУЮЩИЙСЯ ТЕКСТ
+   ═══════════════════════════════════════════ */
+
+.ig-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ig-marquee__inner {
+  display: inline-block;
+  animation: ig-marquee 33s linear infinite;
+}
+
+.ig-marquee__text {
+  font-size: var(--ig-font-3xl);
+  font-weight: var(--ig-font-light);
+  text-transform: lowercase;
+  background: var(--ig-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.3;
+}
+
+@keyframes ig-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-1000px); }
+}
+
+/* ═══════════════════════════════════════════
+   ПОПАП / МОДАЛЬНОЕ ОКНО
+   ═══════════════════════════════════════════ */
+
+.ig-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 102, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--ig-transition-base);
+}
+
+.ig-popup--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ig-popup__content {
+  background: var(--ig-white);
+  border-radius: var(--ig-radius-lg);
+  padding: var(--ig-space-2xl);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform var(--ig-transition-base);
+}
+
+.ig-popup--active .ig-popup__content {
+  transform: translateY(0);
+}
+
+.ig-popup__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.ig-popup__close img {
+  width: 100%;
+  height: 100%;
+}
+
+/* ═══════════════════════════════════════════
+   ТАЙПОГРАФИКА
+   ═══════════════════════════════════════════ */
+
+.ig-h1 {
+  font-size: var(--ig-font-3xl);
+  font-weight: var(--ig-font-medium);
+  line-height: var(--ig-line-height-tight);
+  color: var(--ig-text-dark);
+}
+
+.ig-h2 {
+  font-size: var(--ig-font-2xl);
+  font-weight: var(--ig-font-medium);
+  line-height: var(--ig-line-height-tight);
+  color: var(--ig-text-dark);
+}
+
+.ig-h3 {
+  font-size: var(--ig-font-xl);
+  font-weight: var(--ig-font-medium);
+  line-height: var(--ig-line-height-tight);
+  color: var(--ig-text-dark);
+}
+
+.ig-h4 {
+  font-size: var(--ig-font-lg);
+  font-weight: var(--ig-font-medium);
+  line-height: var(--ig-line-height-tight);
+  color: var(--ig-text-dark);
+}
+
+.ig-subtitle {
+  font-size: var(--ig-font-lg);
+  font-weight: var(--ig-font-light);
+  color: var(--ig-text-accent);
+  letter-spacing: var(--ig-letter-spacing);
+}
+
+.ig-body {
+  font-size: var(--ig-font-base);
+  font-weight: var(--ig-font-light);
+  line-height: var(--ig-line-height-base);
+  color: var(--ig-text-dark);
+}
+
+.ig-caption {
+  font-size: var(--ig-font-sm);
+  font-weight: var(--ig-font-light);
+  line-height: var(--ig-line-height-base);
+  color: var(--ig-text-dark);
+}
+
+/* Градиентный текст */
+.ig-text-gradient {
+  background: var(--ig-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════
+   ЛОГОТИП
+   ═══════════════════════════════════════════ */
+
+.ig-logo {
+  display: block;
+}
+
+.ig-logo img {
+  height: 100%;
+  width: auto;
+}
+
+.ig-logo--dark {
+  filter: none;
+}
+
+.ig-logo--light {
+  filter: brightness(0) invert(1);
+}
+
+/* ═══════════════════════════════════════════
+   ГЕОЛОКАЦИЯ
+   ═══════════════════════════════════════════ */
+
+.ig-geo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ig-geo__icon {
+  width: 12px;
+  height: 14px;
+}
+
+.ig-geo__icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.ig-geo__text {
+  font-size: var(--ig-font-md);
+  font-weight: var(--ig-font-medium);
+  color: var(--ig-text-dark);
+}
+
+.ig-geo__phone {
+  font-size: var(--ig-font-md);
+  font-weight: var(--ig-font-regular);
+  color: var(--ig-text-accent);
+}

@@ -1,0 +1,11 @@
+﻿
+=== CSS icons WITHOUT SVG file (0) ===
+
+=== SVG files WITHOUT CSS class (0) ===
+
+=== JSON names WITHOUT CSS class (0) ===
+
+=== SVG files NOT in JSON (1) ===
+traffic-light
+
+=== JSON names WITHOUT SVG file (0) ===

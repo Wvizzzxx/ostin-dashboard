@@ -1,0 +1,18 @@
+/* ============================================
+   IMPULSE.GURU UI KIT — Master Import
+   ============================================
+   
+   Подключите этот файл для использования всего UI-kit:
+   
+   <link rel="stylesheet" href="impulse-ui-kit/css/impulse-ui-kit.css">
+   
+   Или подключайте отдельные файлы:
+   - variables.css   — CSS переменные (токены)
+   - base.css        — Сброс, базовые стили, утилиты
+   - components.css  — Все компоненты
+   ============================================ */
+
+@import url('./variables.css');
+@import url('./base.css');
+@import url('./components.css');
+@import url('./icons.css');

@@ -1,0 +1,12 @@
+const fs = require('fs');
+const path = require('path');
+
+const svg = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+  '<path d="M16 8C16 10.2091 14.2091 12 12 12C9.79086 12 8 10.2091 8 8C8 5.79086 9.79086 4 12 4C14.2091 4 16 5.79086 16 8Z" stroke="#0F172B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+  '<path d="M16 16C16 18.2091 14.2091 20 12 20C9.79086 20 8 18.2091 8 16C8 13.7909 9.79086 12 12 12C14.2091 12 16 13.7909 16 16Z" stroke="#0F172B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+  '<path d="M12 9V9.01" stroke="#0F172B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+  '<path d="M12 17V17.01" stroke="#0F172B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+'</svg>';
+
+fs.writeFileSync(path.join(__dirname, '..', 'icon', 'traffic-light.svg'), svg, 'utf-8');
+console.log('traffic-light.svg created successfully');
